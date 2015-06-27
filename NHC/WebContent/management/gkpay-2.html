@@ -250,6 +250,41 @@ body,html{
 	color:#333;
 	padding-left:10px;}
 </style>
+<script type="text/javascript" >
+
+function submitCheck() { 
+    var e = document.getElementById("wsel1");
+    var sValue = e.options[e.selectedIndex].value;
+
+    var e2 = document.getElementById("wsel2");
+    var sValue2 = e2.options[e2.selectedIndex].value;
+
+    var e3 = document.getElementById("wsel3");
+    var sValue3 = e3.options[e3.selectedIndex].value;
+ 
+    if( document.getElementById("radio1").checked && sValue=="0" ) {
+        alert("未選擇醫療項目")
+        return ;
+    }
+
+    if( document.getElementById("radio2").checked && sValue2=="0" ) {
+        alert("未選擇醫療項目")
+        return ;
+    }
+    
+    if( document.getElementById("radio3").checked && sValue3=="0" ) {
+        alert("未選擇醫療項目")
+        return ;
+    }
+        document.getElementById("ctl00").submit();
+
+}
+    
+    
+</script>
+
+
+
 </head>
 
 <body>
@@ -326,7 +361,7 @@ body,html{
 <div class="SUBMIT">
     <ul>
      <li><input class="submit-button" type="button" value="上一步" onClick="javascript:history.go(-1)"/></li>
-     <li><input class="submit-button" type="submit" value="下一步" /></li>
+     <li><input class="submit-button" type="button" value="下一步" onClick='submitCheck()' /></li>
      </ul>
    </div>   
 
