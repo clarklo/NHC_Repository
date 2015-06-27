@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.HEALTH{
+	padding:10px;}
+.HEALTH table{
+	border:1px #666666 solid;}
+.HEALTH th{
+	background-color: #FFC0CB;
+	font-size:17px;
+	color:#900;
+	padding:3px;
+	text-align:center;
+	border:1px #DE3163 solid;}
+.HEALTH td{
+	padding:7px;
+	color:#333;
+	border:1px dotted #990036;
+	font-size:17px;}
+.HEALTH td.c01{
+	background-color:#cce5ed;
+	color:#467bd0;}
+.HEALTH td.c02{
+	background-color:#ffcfaf;
+	color:#683c23;}
+.HEALTH td.c03{
+	background-color:#fff7b6;
+	color:#94583c;}
+.HEALTH tr.color01{
+	background-color:#FFE5B4;}
+.HEALTH h1{
+	font-size:20px;
+	color:#375F88;
+	font-weight:bold;
+	margin-bottom:10px;
+	background-image:url(../images/Charge_icon.png);
+	background-repeat:no-repeat;
+	background-position:0px 7px;
+	padding-left:15px;}
+.HEALTH p{
+	padding:5px 0px;
+	font-size:16px;
+	line-height:22px;
+	color:#014d7f;}
+.HEALTH p.listStyle{
+	padding:3px 0px 3px 14px;
+	background-image:url(../images/ICON04.png);
+	background-repeat:no-repeat;
+	background-position:0px 11px;}
+.HEALTH ul{
+	margin-left:22px;}
+.HEALTH ul li{
+	padding:5px 0px;
+	font-size:16px;
+	line-height:22px;
+	color:#333;}
+.HEALTH ul li span{
+	color:#C00;}
+.HEALTH ul li a{
+	color:#900;
+	text-decoration:none;}
+.HEALTH ul li a:hover{
+	text-decoration:underline;}
+
+
+

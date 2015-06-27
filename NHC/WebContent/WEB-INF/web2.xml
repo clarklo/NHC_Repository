@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<filter>
+      <filter-name>StringFilter</filter-name>
+	  <filter-class>com.web.filter.EncodingFilter</filter-class>
+	  <init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+	  </init-param>
+  </filter>                                                     
+  <filter-mapping>                             
+		<filter-name>StringFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+  </filter-mapping>      
+  <servlet>                            
+    <description>EmailAction</description>
+    <display-name>EmailAction</display-name>    
+    <servlet-name>EmailAction</servlet-name>  
+    <servlet-class>com.web.servlet.EmailAction</servlet-class>
+    <init-param>
+    <param-name>FromAddress</param-name> 
+    <param-value>kingmorise@gmail.com</param-value>               
+    </init-param>
+     <init-param>                      
+    <param-name>Frompassword</param-name>    
+    <param-value>2001051107</param-value>
+    </init-param>
+  </servlet>
+  <servlet> 
+    <servlet-name>UserList</servlet-name>
+    <servlet-class>com.web.servlet.UserList</servlet-class>
+  </servlet>
+  <servlet>                        
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DelUserManServlet</servlet-name>
+    <servlet-class>com.web.servlet.DelUserManServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DocUploadServlet</servlet-name>
+    <servlet-class>com.web.servlet.DocUploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>NewsList</servlet-name>
+    <servlet-class>com.web.servlet.NewsList</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>LeaveWordList</servlet-name>
+    <servlet-class>com.web.servlet.LeaveWordList</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>AddLeaveWordClass</servlet-name>
+    <servlet-class>com.web.servlet.AddLeaveWordClass</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>OnlineQuestion</servlet-name>
+    <servlet-class>com.web.servlet.OnlineQuestion</servlet-class>
+  </servlet>    
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>OrderList</servlet-name>
+    <servlet-class>com.web.servlet.OrderList</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CommList</servlet-name>
+    <servlet-class>com.web.servlet.CommList</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>JobList</servlet-name>
+    <servlet-class>com.web.servlet.JobList</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ProductList</servlet-name>
+    <servlet-class>com.web.servlet.ProductList</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SearchList</servlet-name>
+    <servlet-class>com.web.servlet.SearchList</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+    <servlet-mapping>
+    <servlet-name>LeaveWordList</servlet-name>
+    <url-pattern>/siteadmin/LeaveWordList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddLeaveWordClass</servlet-name>
+    <url-pattern>/siteadmin/AddLeaveWordClass</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OnlineQuestion</servlet-name>
+    <url-pattern>/resource/OnlineQuestion</url-pattern>
+  </servlet-mapping>
+ 
+
+  <servlet-mapping>
+    <servlet-name>EmailAction</servlet-name>
+    <url-pattern>/EmailAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserList</servlet-name>
+    <url-pattern>/siteadmin/user/UserList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping> 
+    <servlet-name>DelUserManServlet</servlet-name>
+    <url-pattern>/siteadmin/user/DelUserManServlet</url-pattern>
+  </servlet-mapping>  
+  <servlet-mapping>                       
+    <servlet-name>DocUploadServlet</servlet-name>
+    <url-pattern>/siteadmin/DocUploadServlet</url-pattern>
+  </servlet-mapping> 
+  <servlet-mapping>        
+    <servlet-name>NewsList</servlet-name>
+    <url-pattern>/news/NewsList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewsList</servlet-name>
+    <url-pattern>/investment/NewsList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewsList</servlet-name>
+    <url-pattern>/news/NewsList</url-pattern>       
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NewsList</servlet-name>          
+    <url-pattern>/project/NewsList</url-pattern>
+  </servlet-mapping>   
+  <servlet-mapping>        
+    <servlet-name>NewsList</servlet-name>
+    <url-pattern>/scenery/NewsList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>OrderList</servlet-name>
+    <url-pattern>/siteadmin/OrderList</url-pattern>     
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CommList</servlet-name>
+    <url-pattern>/siteadmin/CommList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>JobList</servlet-name>
+    <url-pattern>/resources/JobList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProductList</servlet-name>
+    <url-pattern>/navigation/ProductList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>           
+    <servlet-name>SearchList</servlet-name>
+    <url-pattern>/search/SearchList</url-pattern>
+  </servlet-mapping>
+</web-app>
+ 

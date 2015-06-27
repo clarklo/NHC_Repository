@@ -1,0 +1,23 @@
+<HTML><HEAD><TITLE>Liva訊息發布系統──視頻檔案</TITLE>
+<link rel="stylesheet" type="text/css" href="site.css">
+<SCRIPT event=onclick for=Ok language=JavaScript>
+  window.returnValue = path.value+"*"+selrow.value+"*"+selcol.value
+  window.close();
+</SCRIPT>
+<script>
+function IsDigit()
+{
+  return ((event.keyCode >= 48) && (event.keyCode <= 57));
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<BODY bgColor=menu topmargin=15 leftmargin=15 >
+<CENTER><BR>
+<table width=100%><tr><td>
+<FIELDSET align=left>
+<LEGEND align=left>插入網上視頻檔案</LEGEND>
+<TABLE>
+<TR><TD >位址︰<INPUT id=path size=35  value="http://"></td></TR>
+<TR><TD >寬度︰<INPUT id=selrow  ONKEYPRESS="event.returnValue=IsDigit();" value=500 size=7 maxlength="4"> &nbsp;&nbsp;高度︰<INPUT id=selcol ONKEYPRESS="event.returnValue=IsDigit();" value=300 size=7 maxlength="4"></TD></TR>
+<TR><TD align=center>支援格式為︰avi、wmv、asf</TD></TR>
+ </TABLE></fieldset></td><td width=80 align="center"><input type=submit value='   確定   ' id=Ok><br><br><input type=button value='   取消   ' onClick="window.close();"></td></tr></table>

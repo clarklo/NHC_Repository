@@ -1,0 +1,32 @@
+@charset "big5";
+body {
+	background-color: #799AE1;
+	font-size: 12pt;
+
+}
+td {
+	font-size: 12pt;
+}
+.menu {
+	font-size: 12pt;
+	color: #215DC6;
+	width:128;
+	height:25; 
+}
+.sub_menu { 
+    border-left:1px solid white;  
+	border-bottom:1px solid white; 
+	border-right:1px solid white;
+	overflow:hidden; 
+	background:#D6DFF7; 
+}
+a {
+	color:#000000;
+	text-decoration:none;
+	font-family: "º–∑¢≈È";
+	font-size: 12pt;
+}
+a:hover { 
+    color:#428EFF;
+	text-decoration:underline;
+}

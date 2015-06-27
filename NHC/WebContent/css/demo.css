@@ -1,0 +1,112 @@
+
+
+ul.container{
+	/* The topmost UL */
+	width:120px;
+	margin:0 auto;
+}
+
+li{
+	list-style:none;
+	text-align:left;
+}
+
+li.menuAC{
+	/* The main list elements */
+	padding:5px 0;
+	width:100%;
+}
+li.button01,li.button{
+	display:block;
+	width:190px;
+	margin:10px 13px;
+	padding-bottom:5px;
+	border-bottom:1px solid #999;}
+
+li.button01 a{
+	/* The section titles */
+	display:block;
+	width:170px;
+	color:#000;
+	font-size:17px;
+	text-decoration:none;
+	padding:5px 5px 5px 15px;
+	background-image:url(../images/menu_icon.png);
+	background-repeat:no-repeat;
+	background-position:5px 11px;
+	
+}
+
+li.button01 a:hover{
+	/* Removing the inherited underline from the titles */
+	text-decoration:none;
+	background-color:#1a598a;
+	color:#FFF;
+}
+
+li.button a{
+	/* The section titles */
+	display:block;
+	width:170px;
+	color:#000;
+	font-size:17px;
+	text-decoration:none;
+	padding:5px 5px 5px 15px;
+	background-image:url(../images/menu_icon.png);
+	background-repeat:no-repeat;
+	background-position:5px 11px;
+	
+}
+
+li.button a:hover{
+	/* Removing the inherited underline from the titles */
+	text-decoration:none;
+	background-color:#1a598a;
+	color:#FFF;
+}
+
+
+
+.dropdown{
+	/* The expandable lists */
+	display:none;
+	width:100%;
+}
+
+.dropdown li{
+	
+	
+	
+	/* Each element in the expandable list */
+	margin:7px 10px;
+	
+	font-size:17px;
+}
+.dropdown li a{
+	display:block;
+	padding:3px 20px 3px 30px;
+	width:150px;
+	color:#13508f;
+	text-decoration:none;}
+.dropdown li a:hover{
+	background-color:#bcdee2;
+	color:#136d8f;
+	}
+
+
+/* The styles below are only necessary for the demo page */
+
+
+.clear{
+	clear:both;
+}
+
+#main{
+	/* The main container */
+
+	width:120px;
+	position:relative;
+}
+
+
+

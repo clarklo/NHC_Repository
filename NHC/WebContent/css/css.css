@@ -1,0 +1,89 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+.menu {
+	width:900px;
+	height:65px;
+	position:relative;
+	
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.item {
+	position:relative;
+	float:right;
+	width:69px;
+	margin:0px 5px;
+	height:80px;
+	
+	cursor:pointer;
+	overflow:hidden;
+}
+.link {
+	left:2px;
+	top:2px;
+	position:absolute;
+	width:69px;
+	height:80px;
+}
+.icon_home {
+	background:transparent url(../images/BTN01.png) no-repeat top left;
+}
+.icon_mail {
+	background:transparent url(../images/BTN02.png) no-repeat top left;
+}
+.icon_help {
+	background:transparent url(../images/BTN03.png) no-repeat top left;
+}
+
+.item_content {
+	position:absolute;
+	height:80px;
+	width:700px;
+	overflow:hidden;
+	left:69px;
+	top:7px;
+	background:transparent;
+	display:none;
+}
+.item_content h2 {
+	color:#26648b;
+	text-shadow: 1px 1px 1px #fff;
+	font-size:14px;
+}
+.item_content a {
+	float:left;
+	margin-right:7px;
+	margin-top:3px;
+	color:#900;
+	text-shadow: 1px 1px 1px #fff;
+	text-decoration:none;
+	font-size:12px;
+}
+.item_content a:hover {
+	color:#0b965b;
+}
+.item_content p {
+	
+	display:none;
+}
+.item_content ul {
+	width:600px;
+	height:60px;
+	
+}
+.item_content ul li{
+	float:left;
+	font-size:14px;
+}
+.item_content ul li a{
+	color:#333;
+}
+.item_content ul li a:hover{
+	color:#900;
+}
