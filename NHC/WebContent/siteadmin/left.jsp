@@ -105,12 +105,12 @@ function showsubmenu(sid)
 </table>
 <br>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="156">
-  <tr onClick="showsubmenu(2)" style="cursor: hand">
+  <tr onClick="showsubmenu(3)" style="cursor: hand">
     <td class="menu" background="images/bg.GIF">&nbsp;<strong>預約管理</strong></td>
-    <td width="26"><img id=ss2 border="0" src="images/hide.GIF" width="25" height="25"></td>
+    <td width="26"><img id=ss3 border="0" src="images/hide.GIF" width="25" height="25"></td>
   </tr>
   <tr>
-    <td colspan="2" width="154" style="display:" id='submenu2'>
+    <td colspan="2" width="154" style="display:" id='submenu3'>
     <div class=sub_menu style="width:158">
 	    <table cellpadding=0 cellspacing=0 align=center width=135>
           
@@ -122,6 +122,33 @@ function showsubmenu(sid)
           <tr>
             <td height=20> <p align="center">
             <a href="wordList2.jsp" target="main">美容預約管理</a>
+          </p></td>
+          </tr>
+          
+        </table>
+	  </div>
+    </td>
+  </tr>
+</table>
+<br>
+<table border="0" align="center" cellpadding="0" cellspacing="0" width="156">
+  <tr onClick="showsubmenu(4)" style="cursor: hand">
+    <td class="menu" background="images/bg.GIF">&nbsp;<strong>收費標準管理</strong></td>
+    <td width="26"><img id=ss4 border="0" src="images/hide.GIF" width="25" height="25"></td>
+  </tr>
+  <tr>
+    <td colspan="2" width="154" style="display:" id='submenu4'>
+    <div class=sub_menu style="width:158">
+	    <table cellpadding=0 cellspacing=0 align=center width=135>
+          
+          <tr>
+            <td height=20> <p align="center">
+            <a href="PayContAdmin.jsp" target="main">醫療項目管理</a>
+          </p></td>
+          </tr>
+          <tr>
+            <td height=20> <p align="center">
+            <a href="PatientRoomAdmin.jsp" target="main">病房資料管理</a>
           </p></td>
           </tr>
           
