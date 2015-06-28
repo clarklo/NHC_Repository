@@ -316,7 +316,6 @@ function submitCheck() {
 <%
     Operation op = new Operation();
     ResultSet rs = null;
- 
     rs = op.query("select PAY_CONT,PAY_TYPE_CHT from PAYCONT  where PAY_CONT_TYPE IN('A','B','C','D') ORDER BY PAY_CONT ");
     while(rs.next()){
   	  String PAY_CONT = rs.getString("PAY_CONT");
