@@ -361,8 +361,10 @@ function submitCheck() {
 <option value="<%=PAY_CONT%>"><%=PAY_TYPE_CHT%></option>
   <%
   }
+    op.closestmt();
+    op.closeconn();  
   %>
-
+ 
 
 </select></td>
   </tr>
