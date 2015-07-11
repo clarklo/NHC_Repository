@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*,com.web.database.*"  %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
@@ -299,36 +300,34 @@ body,html{
     <th width="15%">價錢</th>
     <th width="30%">病房照片</th>
   </tr>
- 
+  <%
+    Operation op = new Operation();
+    ResultSet rs = null;
+    rs = op.query("select * from PAYROOM ORDER by ROOM_ID ");
+    String checked = "checked";
+    while(rs.next()){
+  	  String ROOM_NAME = rs.getString("ROOM_NAME");
+	  String ROOM_DESC = rs.getString("ROOM_DESC");
+          int ROOM_PAY = rs.getInt("ROOM_PAY");
+          int ROOM_ID = rs.getInt("ROOM_ID");
+  %>
   <tr>
-    <td align="center"><input value="1" name="house" type="radio" id="radio1" checked="checked" /></td>
-    <td align="center">普通單人房</td>
-    <td align="center"><span>4180</span></td>
+    <td align="center"><input value="<%=ROOM_ID%>" name="house" type="radio" id="radio1" <%=checked%>  /></td>
+    <td align="center"><%=ROOM_NAME%></td>
+    <td align="center"><span><%=ROOM_PAY%></span></td>
     <td align="center">
-	<a href="../images/Sickroom_big4180.png" class="fancybox" title="普通單人房4180">
-		<img src="../images/Sickroom_smil4180.png" width="149" height="109" alt="普通單人房4180" /></a></td>
+	<a href="../images/RoomImages/<%=ROOM_ID%>.jpg" class="fancybox" title="<%=ROOM_DESC%>">
+		<img src="../images/RoomImages/<%=ROOM_ID%>.jpg" width="149" height="109" alt="<%=ROOM_DESC%>" /></a></td>
   </tr>
-  <tr>
-    <td align="center"><input value="2" name="house" type="radio" id="radio1" /></td>
-    <td align="center">特等病房</td>
-    <td align="center"><span>6160</span></td>
-    <td align="center">
-	<a href="../images/Sickroom_big6160.png" class="fancybox" title="特等病房(D級)6160">
-		<img src="../images/Sickroom_smil6160.png" width="149" height="109" alt="特等病房(D級)6160" /></a></td>
-  </tr>
-
-  <tr>
-    <td align="center"><input value="3" name="house" type="radio" id="radio1" /></td>
-    <td align="center">尊榮國際病房</td>
-    <td align="center"><span>7380</span></td>
-    <td align="center">
-	<a href="../images/Sickroom_big7380.png" class="fancybox" title="7380特等病房(A級)">
-		<img src="../images/Sickroom_smil7380.png" width="149" height="109" alt="7380特等病房(A級)" /></a></td>
-  </tr>
+    <%
+    checked = "";
+  }
+  %>
+  
 </table>
 <div class="SUBMIT">
     <ul>
-     <li><a href="javascript:history.go(-1)"><input class="submit-button" type="button" value="上一步" /></a></li>
+        <li><input class="submit-button" type="button" value="上一步" onclick="javascript:history.go(-1)" /></li>
      <li><input class="submit-button" type="submit" value="下一步" /></li>
      </ul>
    </div>
