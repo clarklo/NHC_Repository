@@ -143,7 +143,17 @@ function showsubmenu(sid)
           
           <tr>
             <td height=20> <p align="center">
-            <a href="PayContAdmin.jsp" target="main">醫療項目管理</a>
+            <a href="PayContAdmin.jsp" target="main">「骨科醫療」管理</a>
+          </p></td>
+          </tr>
+           <tr>
+            <td height=20> <p align="center">
+            <a href="PayContAdmin2.jsp" target="main">「心導管」管理</a>
+          </p></td>
+          </tr>
+           <tr>
+            <td height=20> <p align="center">
+            <a href="PayContAdmin3.jsp" target="main">「生殖」管理</a>
           </p></td>
           </tr>
           <tr>

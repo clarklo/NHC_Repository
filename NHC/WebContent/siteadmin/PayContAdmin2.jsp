@@ -29,9 +29,6 @@ if(request.getParameter("UpdateID")!=null){
         updPAY_002 = rs.getString("PAY_002");
         updPAY_003 = rs.getString("PAY_003");
         updPAY_004 = rs.getString("PAY_004");
-        updPAY_005 = rs.getString("PAY_005");
-        updPAY_006 = rs.getString("PAY_006");
-        updPAY_007 = rs.getString("PAY_007");
         
 	op.closestmt();
 }
@@ -74,30 +71,16 @@ function checker(){
 		return false;
 	}      
 	if(PayCont.PAY_003.value == ""){
-		alert("共同診療項目費用加乘不能為空,請輸入共同診療項目費用加乘!");
+		alert("自費民眾共同診療項目費用不能為空,請輸入自費民眾共同診療項目費用!");
 		PayCont.PAY_003.focus();
 		return false;
 	}              
 	if(PayCont.PAY_004.value == ""){
-		alert("疼痛控制(術後止痛)不能為空,請輸入疼痛控制(術後止痛)!");
+		alert("國際醫療費用_共同診療項目不能為空,請輸入國際醫療費用_共同診療項目!");
 		PayCont.PAY_004.focus();
 		return false;
 	}        
- 	if(PayCont.PAY_005.value == ""){
-		alert("疼痛控制(術後止痛)不能為空,請輸入疼痛控制(術後止痛)!");
-		PayCont.PAY_005.focus();
-		return false;
-	}
-	if(PayCont.PAY_006.value == ""){
-		alert("特殊材料費_骨材不能為空,請輸入特殊材料費_骨材!");
-		PayCont.PAY_006.focus();
-		return false;
-	}        
- 	if(PayCont.PAY_007.value == ""){
-		alert("特殊材料費_骨材不能為空,請輸入特殊材料費_骨材!");
-		PayCont.PAY_007.focus();
-		return false;
-	}        
+ 	 
         if(isNaN(PayCont.PAY_XCODE.value)){
 		alert("住院天數需為數字,請輸入數字!");
 		PayCont.PAY_XCODE.focus();
@@ -119,30 +102,16 @@ function checker(){
 		return false;
 	}        
         if(isNaN(PayCont.PAY_003.value)){
-		alert("共同診療項目費用加乘需為數字,請輸入數字!");
+		alert("自費民眾共同診療項目費用需為數字,請輸入數字!");
 		PayCont.PAY_003.focus();
 		return false;
 	}        
         if(isNaN(PayCont.PAY_004.value)){
-		alert("疼痛控制(術後止痛)需為數字,請輸入數字!");
+		alert("國際醫療費用_共同診療項目需為數字,請輸入數字!");
 		PayCont.PAY_004.focus();
 		return false;
 	}        
-        if(isNaN(PayCont.PAY_005.value)){
-		alert("疼痛控制(術後止痛)需為數字,請輸入數字!");
-		PayCont.PAY_005.focus();
-		return false;
-	}        
-        if(isNaN(PayCont.PAY_006.value)){
-		alert("特殊材料費_骨材需為數字,請輸入數字!");
-		PayCont.PAY_006.focus();
-		return false;
-	}        
-        if(isNaN(PayCont.PAY_007.value)){
-		alert("特殊材料費_骨材需為數字,請輸入數字!");
-		PayCont.PAY_007.focus();
-		return false;
-	}        
+        
         
         return true;
 }
@@ -186,29 +155,25 @@ function selected(){
       <span class="style1">*</span></div></td>
   </tr>
   <tr> 
-    <td height="25" align="center"><div align="right">共同診療項目費用加乘</div></td>
+    <td height="25" align="center"><div align="right">自費民眾共同診療項目費用</div></td>
     <td height="25" align="center"><div align="left">
       <input name="PAY_003" type="text" id="PAY_003" size="40" maxlength="3" value="<%=updPAY_003%>">
     <span class="style1">*</span></div></td>
   </tr>
   <tr> 
-    <td height="25" align="center"><div align="right">疼痛控制(術後止痛)</div></td>
+    <td height="25" align="center"><div align="right">國際醫療費用_共同診療項目</div></td>
     <td height="25" align="center"><div align="left">
-      <input name="PAY_004" type="text" id="PAY_004" size="40" maxlength="10" value="<%=updPAY_004%>"> ~
-       <input name="PAY_005" type="text" id="PAY_005" size="40" maxlength="10" value="<%=updPAY_005%>">
+      <input name="PAY_004" type="text" id="PAY_004" size="40" maxlength="10" value="<%=updPAY_004%>">
     <span class="style1">*</span></div></td>
   </tr>
-   <tr> 
-    <td height="25" align="center"><div align="right">特殊材料費_骨材</div></td>
-    <td height="25" align="center"><div align="left">
-      <input name="PAY_006" type="text" id="PAY_006" size="40" maxlength="10" value="<%=updPAY_006%>"> ~
-       <input name="PAY_007" type="text" id="PAY_007" size="40" maxlength="10" value="<%=updPAY_007%>">
-    <span class="style1">*</span></div></td>
-  </tr>
+   
   <tr> 
     <td height="25" colspan="2" align="center"><div align="center">
+       <input name="PAY_005" type="hidden" id="PAY_005" value="0" >
+        <input name="PAY_006" type="hidden" id="PAY_006" value="0" >
+        <input name="PAY_007" type="hidden" id="PAY_007" value="0" >
       <input name="PAY_008" type="hidden" id="PAY_008" value="0" >
-      <input name="PAY_CONT_TYPE" type="hidden" id="PAY_CONT_TYPE" value="A" >
+      <input name="PAY_CONT_TYPE" type="hidden" id="PAY_CONT_TYPE" value="B" >
       <input name="updPAY_ID" type="hidden" id="updPAY_ID" value="<%=updPAY_ID%>" >
       <input type="submit" name="Submit" value="修 改"> 
        <input name="Reset" type="reset" id="Reset" value="重 置">
@@ -223,11 +188,8 @@ function selected(){
     <td width="6%" align="center" background="images/tablebg.gif"><strong>住院天數(迄)</strong></td>
     <td width="4%" align="center" background="images/tablebg.gif"><strong>共同診療項目費用(起)</strong></td>
     <td width="4%" align="center" background="images/tablebg.gif"><strong>共同診療項目費用(迄)</strong></td>
-    <td width="4%" align="center" background="images/tablebg.gif"><strong>共同診療項目費用加乘</strong></td>
-    <td width="4%" align="center" background="images/tablebg.gif"><strong>疼痛控制(術後止痛)(起)</strong></td>
-    <td width="4%" align="center" background="images/tablebg.gif"><strong>疼痛控制(術後止痛)(迄)</strong></td>
-    <td width="4%" align="center" background="images/tablebg.gif"><strong>特殊材料費_骨材(起)</strong></td>
-    <td width="4%" align="center" background="images/tablebg.gif"><strong>特殊材料費_骨材(迄)</strong></td>
+    <td width="4%" align="center" background="images/tablebg.gif"><strong>自費民眾共同診療項目費用</strong></td>
+    <td width="4%" align="center" background="images/tablebg.gif"><strong>國際醫療費用_共同診療項目</strong></td>
     <td width="6%" align="center" background="images/tablebg.gif"><strong>更新帳號</strong></td>
     <td width="6%" align="center" background="images/tablebg.gif"><strong>更新時間</strong></td>
     <td width="17%" height="25" align="center" background="images/tablebg.gif"><strong>管 理</strong></td>
@@ -242,7 +204,7 @@ function selected(){
 	//總頁數 
 	int pageCount = 0; 
 	//獲得記錄總數
-	rs = op.query("SELECT COUNT(*) AS total FROM PAYCONT where PAY_CONT_TYPE='A' ");
+	rs = op.query("SELECT COUNT(*) AS total FROM PAYCONT where PAY_CONT_TYPE='B' ");
 	while(rs.next()){
 		totalRecord = rs.getInt("total");
 	}
@@ -265,7 +227,7 @@ function selected(){
   %>
   <form name="form1" method="post" action="delselectedPayCont.jsp?ps=<%=pageSize%>">
   <%
-  rs1 = op.query("SELECT row_number() over(order by pay_id) as rn,PAYCONT.* FROM PAYCONT  where PAY_CONT_TYPE='A'  order by PAY_id ");
+  rs1 = op.query("SELECT row_number() over(order by pay_id) as rn,PAYCONT.* FROM PAYCONT  where PAY_CONT_TYPE='B'  order by PAY_id ");
   int j = 0;
   while(rs1.next()){
       int rn =rs1.getInt("rn");
@@ -296,12 +258,9 @@ function selected(){
     <td height="25" align="center"><div align="left"><%=PAY_002%></div></td>
     <td height="25" align="center"><div align="left"><%=PAY_003%></div></td>
     <td height="25" align="center"><div align="left"><%=PAY_004%></div></td>
-    <td height="25" align="center"><div align="left"><%=PAY_005%></div></td>
-    <td height="25" align="center"><div align="left"><%=PAY_006%></div></td>
-    <td height="25" align="center"><div align="left"><%=PAY_007%></div></td>
     <td height="25" align="center"><div align="left"><%=PAY_009%></div></td>
     <td height="25" align="center"><div align="left"><%=PAY_DATETIME%></div></td>
-    <td align="center" height="25"><a href="PayContAdmin.jsp?UpdateID=<%=PAY_id%>">修 改</a>  </td>
+    <td align="center" height="25"><a href="PayContAdmin2.jsp?UpdateID=<%=PAY_id%>">修 改</a>  </td>
   </tr>
   <%
     }

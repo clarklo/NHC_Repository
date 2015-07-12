@@ -132,7 +132,6 @@ function selected(){
 </table>
 <table width="95%" border="1" align="center" cellpadding="3" cellspacing="0" bordercolorlight="#ECEEE4" bordercolordark="#CCCABC">
   <tr>
-    <td width="5%" align="center" background="images/tablebg.gif"><strong>選擇</strong></td>
     <td width="10%" align="center" background="images/tablebg.gif"><strong>病房名稱</strong></td>
     <td width="10%" align="center" background="images/tablebg.gif"><strong>病房描述</strong></td>
     <td width="10%" align="center" background="images/tablebg.gif"><strong>病房價格</strong></td>
@@ -184,7 +183,6 @@ function selected(){
           j++;
   %>
   <tr>
-    <td height="25" align="center"><input type="checkbox" name="id<%=j%>" value="<%=ROOM_ID%>"></td>
     <td height="25" align="center"><div align="left"><%=ROOM_NAME%></div></td>
     <td height="25" align="center"><div align="left"><%=ROOM_DESC%></div></td>
     <td height="25" align="center"><div align="left"><%=ROOM_PAY%></div></td>
