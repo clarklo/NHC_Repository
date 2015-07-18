@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*,com.web.database.*" errorPage="error/error.jsp" %>
-
+<%@include file="permission.jsp"%>
 <%
 Operation op = new Operation();
 ResultSet rs = null;
@@ -28,9 +28,9 @@ if(request.getParameter("UpdateID")!=null){
 <script language="javascript">
 <!--
 function checker(){
-    	if(Link.txtRoomID.value == ""){
+    	if(Link.txtRoomID.value == "0"){
 		alert("病房流水號不能為0,請按修改資料!");
-		Link.txtRoomID.focus();
+		//Link.txtRoomID.focus();
 		return false;
 	}
 	if(Link.txtRoomName.value == ""){
@@ -59,12 +59,12 @@ function checker(){
 }
 
 function checker2(){
-    	if(Link.txtRoomID.value == ""){
+
+    	if(Link.txtRoomID.value == "0"){
 		alert("病房流水號不能為0,請按修改資料!");
-		Link.txtRoomID.focus();
+		//Link.txtRoomID.focus();
 		return false;
 	}
-	 
 	return true;
 }
 

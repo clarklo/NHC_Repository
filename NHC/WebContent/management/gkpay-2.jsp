@@ -309,21 +309,21 @@ function submitCheck() {
    <table width="640" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <th>
-    <input value="1" name="stype" type="radio" id="radio1" checked="checked" />骨科醫療</th>
+    <input value="A" name="stype" type="radio" id="radio1" checked="checked" />骨科醫療</th>
     <td>
     <select id="wsel1" class="formD" name="wsel1">
 <option value="0">請選擇...</option>
 <%
     Operation op = new Operation();
     ResultSet rs = null;
-    rs = op.query("select PAY_CONT,PAY_TYPE_CHT from PAYCONT  where PAY_CONT_TYPE IN('A','B','C','D') ORDER BY PAY_CONT ");
+    rs = op.query("select PAY_ID,PAY_TYPE_CHT from PAYCONT  where PAY_CONT_TYPE='A' ORDER BY PAY_ID ");
     while(rs.next()){
-  	  String PAY_CONT = rs.getString("PAY_CONT");
+  	  String PAY_ID = rs.getString("PAY_ID");
 	  String PAY_TYPE_CHT = rs.getString("PAY_TYPE_CHT");
   %>
     
  
-<option value="<%=PAY_CONT%>"><%=PAY_TYPE_CHT%></option>
+<option value="<%=PAY_ID%>"><%=PAY_TYPE_CHT%></option>
   <%
   }
   %>
@@ -332,33 +332,33 @@ function submitCheck() {
 </select><br /><br /></td>
   </tr>
   <tr>
-    <th><input value="2" name="stype" type="radio" id="radio2" />心導管中心醫療</th>
+    <th><input value="B" name="stype" type="radio" id="radio2" />心導管中心醫療</th>
     <td>
      <select id="wsel2" class="formD" name="wsel2">
 <option value="0">請選擇...</option>
 <%
-    rs = op.query("select PAY_CONT,PAY_TYPE_CHT from PAYCONT  where PAY_CONT_TYPE IN('E') ORDER BY PAY_CONT ");
+    rs = op.query("select PAY_ID,PAY_TYPE_CHT from PAYCONT  where PAY_CONT_TYPE='B' ORDER BY PAY_ID ");
     while(rs.next()){
-  	  String PAY_CONT = rs.getString("PAY_CONT");
+  	  String PAY_ID = rs.getString("PAY_ID");
 	  String PAY_TYPE_CHT = rs.getString("PAY_TYPE_CHT");
   %>
-<option value="<%=PAY_CONT%>"><%=PAY_TYPE_CHT%></option>
+<option value="<%=PAY_ID%>"><%=PAY_TYPE_CHT%></option>
   <%
   }
   %>
 </select></td>
   </tr>
   <tr>
-    <th><input value="3" name="stype" type="radio" id="radio3" />生殖中心醫療</th>
+    <th><input value="C" name="stype" type="radio" id="radio3" />生殖中心醫療</th>
     <td><select id="wsel3" class="formD" name="wsel3">
 <option value="0">請選擇...</option>
 <%
-    rs = op.query("select PAY_CONT,PAY_TYPE_CHT from PAYCONT  where PAY_CONT_TYPE IN('F') ORDER BY PAY_CONT ");
+    rs = op.query("select PAY_ID,PAY_TYPE_CHT from PAYCONT  where PAY_CONT_TYPE='C' ORDER BY PAY_ID ");
     while(rs.next()){
-  	  String PAY_CONT = rs.getString("PAY_CONT");
+  	  String PAY_ID = rs.getString("PAY_ID");
 	  String PAY_TYPE_CHT = rs.getString("PAY_TYPE_CHT");
   %>
-<option value="<%=PAY_CONT%>"><%=PAY_TYPE_CHT%></option>
+<option value="<%=PAY_ID%>"><%=PAY_TYPE_CHT%></option>
   <%
   }
     op.closestmt();

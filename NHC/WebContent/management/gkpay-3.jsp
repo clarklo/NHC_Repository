@@ -255,25 +255,18 @@ body,html{
 <%  
    //從表單中獲取數據  
    String stype= request.getParameter("stype");  
-   String wsel1=request.getParameter("wsel1");  
-   String wsel2= request.getParameter("wsel2"); 
-   String wsel3= request.getParameter("wsel3"); 
-   //驗證"名字(name)"的長度是否符合要求  
-   if(wsel1.length()<1||wsel1.length()>5)  
-      out.println("你輸入的長度不符合要求");  
-   else  
-   {  
-      //out.println("你的項目是："+stype+"<br>");  
-        //out.println("你的選項是："+wsel1+"<br>");  
-        //out.println("你所從事的工作是："+wsel2+"<br>");
-		  //out.println("你的選項是："+wsel3+"<br>"); 
-      //將"名字(name)"保存到session對象中,讓後續頁面(下個頁面、下下個頁面、……)引用  
-      session.setAttribute("stype",stype);
-      session.setAttribute("wsel1",wsel1);
-      session.setAttribute("wsel2",wsel2);
-      session.setAttribute("wsel3",wsel3);
-	  
-   }  
+            if (stype.equals("A")) {
+                session.setAttribute("stype",stype);
+                session.setAttribute("wsel",request.getParameter("wsel1"));
+            }else if (stype.equals("B")) {
+                session.setAttribute("stype",stype);
+                session.setAttribute("wsel",request.getParameter("wsel2"));
+            }else if (stype.equals("C")) {
+                session.setAttribute("stype",stype);
+                session.setAttribute("wsel",request.getParameter("wsel3"));
+                response.sendRedirect("gkpay-4.jsp");
+            }
+  
 
 %> 
 <body>
@@ -312,7 +305,7 @@ body,html{
           int ROOM_ID = rs.getInt("ROOM_ID");
   %>
   <tr>
-    <td align="center"><input value="<%=ROOM_ID%>" name="house" type="radio" id="radio1" <%=checked%>  /></td>
+    <td align="center"><input value="<%=ROOM_ID%>" name="room" type="radio" id="radio1" <%=checked%>  /></td>
     <td align="center"><%=ROOM_NAME%></td>
     <td align="center"><span><%=ROOM_PAY%></span></td>
     <td align="center">

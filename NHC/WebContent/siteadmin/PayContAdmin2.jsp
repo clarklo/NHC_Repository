@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*,com.web.database.*" errorPage="error/error.jsp" %>
-
+<%@include file="permission.jsp"%>
 
 <%
 Operation op = new Operation();
@@ -131,7 +131,7 @@ function selected(){
 <body onLoad="selected();">
 <table width="95%" border="1" cellspacing="0" cellpadding="3" align="center" bordercolorlight="#ECEEE4" bordercolordark="#CCCABC">
   <tr> 
-    <td colspan="7" align="center" height="30" background="images/tablebg.gif"><b>收費標準-骨科醫療</b></td>
+    <td colspan="7" align="center" height="30" background="images/tablebg.gif"><b>收費標準-心導管</b></td>
   </tr>
   <form name="PayCont" method="post" action="PayContUpdate.jsp" onSubmit="return checker();">
   <tr> 

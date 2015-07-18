@@ -1,4 +1,3 @@
-
 <%@page import="java.nio.charset.Charset"%>
 <%@page import="com.web.database.Operation"%>
 <%@ page contentType="text/html;charset=gb2312"%>
@@ -34,7 +33,7 @@ if (!myFile.isMissing())
     //取得文件 的大小
     int fileSize=myFile.getSize();
     //保存路径
-    String filePath=getServletContext().getRealPath("/")+"images/RoomImages\\";
+    String filePath=getServletContext().getRealPath("/")+"/images/RoomImages/";
     String trace=filePath+RoomID + ".jpg";
 
     //将文件保存在服务器端

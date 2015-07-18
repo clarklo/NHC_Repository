@@ -304,61 +304,39 @@ String introduce0 = "無!";
 
    //從sessoin對象中獲取數據  
    String stype=(String)session.getAttribute("stype");  
-   String wsel1=(String)session.getAttribute("wsel1");  
-   String wsel2=(String)session.getAttribute("wsel2"); 
-   String wsel3=(String)session.getAttribute("wsel3"); 
-   String house= request.getParameter("house"); 
-   if(wsel1.length()<1||wsel1.length()>5)  
-      out.println("你輸入的長度不符合要求");  
-   else if("1".equals(stype))  
-   {  
-      
-      session.setAttribute("stype",stype);
-      session.setAttribute("wsel1",wsel1);
-   
-   rs = op.query("select * from paycont where pay_cont='"+wsel1+"' AND pay_logs='"+stype+"' AND pay_xcode='"+house+"'");
-   rs.next();
-	type0 = rs.getString("pay_008");
-	name0 = rs.getString("pay_009");
-	
-	introduce0 = rs.getString("pay_type_cht");
-	
-	
-	op.closestmt();
+   String wsel=(String)session.getAttribute("wsel");  
+   String roomID= request.getParameter("room"); 
+   int totalCountLow =0 ;
+   int totalCountHigh=0 ;
+   int roomPay=0 ;
+    String roomName="";
+   if (roomID==null){
+       roomPay=0 ;
+   }else 
+   {
+        rs = op.query("select * from PAYROOM where room_id='"+roomID+"'");
+        rs.next();
+         roomPay=rs.getInt("Room_PAY");
+         roomName=rs.getString("Room_Name");
    }
-	else if("2".equals(stype))  
-	   {  
-	      
-	      session.setAttribute("stype",stype);
-	      session.setAttribute("wsel2",wsel2);
-	   
-	   rs = op.query("select * from paycont where pay_cont='"+wsel2+"' AND pay_logs='"+stype+"' AND pay_xcode='"+house+"'");
-	   rs.next();
-		type0 = rs.getString("pay_008");
-		name0 = rs.getString("pay_009");
-		
-		introduce0 = rs.getString("pay_type_cht");
-		
-		
-		op.closestmt();
-	   }
-	else if("3".equals(stype))   
-	   {  
-	      
-	      session.setAttribute("stype",stype);
-	      session.setAttribute("wsel1",wsel1);
-	   
-	   rs = op.query("select * from paycont where pay_cont='"+wsel3+"' AND pay_logs='"+stype+"' AND pay_xcode='"+house+"'");
-		
-		rs.next();
-		type0 = rs.getString("pay_008");
-		name0 = rs.getString("pay_009");
-		
-		introduce0 = rs.getString("pay_type_cht");
-		
-		
-		op.closestmt();
-  }   
+  
+  
+  
+   rs = op.query("select * from paycont where pay_id='"+wsel+"'");
+   rs.next();
+   String PAY_TYPE_CHT=rs.getString("PAY_TYPE_CHT");
+    if (stype.equals("A")) {
+        totalCountLow=rs.getInt("pay_001")+(rs.getInt("pay_001") * rs.getInt("pay_003") )+rs.getInt("pay_004")+rs.getInt("pay_006")+(rs.getInt("pay_XCODE") * roomPay ) ;
+        totalCountHigh=rs.getInt("pay_002")+(rs.getInt("pay_002") * rs.getInt("pay_003") )+rs.getInt("pay_005")+rs.getInt("pay_007")+(rs.getInt("pay_LOGS") * roomPay ) ;
+    }else if (stype.equals("B")) {
+        totalCountLow= rs.getInt("pay_001")+(rs.getInt("pay_001") * rs.getInt("pay_003") )+(rs.getInt("pay_001") * rs.getInt("pay_004") )+(rs.getInt("pay_XCODE") * roomPay ) ;
+        totalCountHigh=rs.getInt("pay_002")+(rs.getInt("pay_002") * rs.getInt("pay_003") )+(rs.getInt("pay_002") * rs.getInt("pay_004") )+(rs.getInt("pay_LOGS") * roomPay ) ;
+    }else if (stype.equals("C")) {
+        totalCountLow=rs.getInt("pay_001")+rs.getInt("pay_003")+rs.getInt("pay_005")+rs.getInt("pay_007") ;
+        totalCountHigh=rs.getInt("pay_002")+rs.getInt("pay_004")+rs.getInt("pay_006")+rs.getInt("pay_008") ;
+    }
+    op.closestmt();
+ 
 %> 
 <div class="content">
    <div class="pay">
@@ -372,14 +350,14 @@ String introduce0 = "無!";
     <table width="630" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <th width="15%">醫療名稱：</th>
-    <td><p><%=introduce0%></p>
+    <td><p><%=PAY_TYPE_CHT%></p>
     <span></span>
     </td>
   </tr>
   <tr>
     <th>病房類型：</th>
     <td><p>
-    <%if(house.equals("1")){%>普通單人房<%}else if(house.equals("2")){%>特等病房<%}else{%>尊榮國際病房<%}%>
+    <%=roomName%>
     </p>
     </td>
   </tr>
@@ -393,9 +371,9 @@ String introduce0 = "無!";
     <th>試算金額：</th>
     <td><p>新台幣<span class="rr">
    
-    &nbsp;<%=type0%>
+    &nbsp;<%=totalCountLow%>
     ~
-    &nbsp;<%=name0%>
+    &nbsp;<%=totalCountHigh%>
     元</span><a href="https://tw.money.yahoo.com/currency_exc_result?amt=1&from=USD&to=TWD" target="new">匯率換算</a></p>
     </td>
   </tr>
