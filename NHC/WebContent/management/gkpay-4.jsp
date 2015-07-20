@@ -306,8 +306,8 @@ String introduce0 = "無!";
    String stype=(String)session.getAttribute("stype");  
    String wsel=(String)session.getAttribute("wsel");  
    String roomID= request.getParameter("room"); 
-   int totalCountLow =0 ;
-   int totalCountHigh=0 ;
+   Double totalCountLow =0.0 ;
+   Double totalCountHigh=0.0 ;
    int roomPay=0 ;
     String roomName="";
    if (roomID==null){
@@ -326,14 +326,14 @@ String introduce0 = "無!";
    rs.next();
    String PAY_TYPE_CHT=rs.getString("PAY_TYPE_CHT");
     if (stype.equals("A")) {
-        totalCountLow=rs.getInt("pay_001")+(rs.getInt("pay_001") * rs.getInt("pay_003") )+rs.getInt("pay_004")+rs.getInt("pay_006")+(rs.getInt("pay_XCODE") * roomPay ) ;
-        totalCountHigh=rs.getInt("pay_002")+(rs.getInt("pay_002") * rs.getInt("pay_003") )+rs.getInt("pay_005")+rs.getInt("pay_007")+(rs.getInt("pay_LOGS") * roomPay ) ;
+      totalCountLow=(rs.getDouble("pay_001") * rs.getDouble("pay_003"))+rs.getInt("pay_004")+rs.getInt("pay_006")+(rs.getInt("pay_XCODE") * roomPay ) ;
+      totalCountHigh=(rs.getDouble("pay_002") * rs.getDouble("pay_003") )+rs.getInt("pay_005")+rs.getInt("pay_007")+(rs.getInt("pay_LOGS") * roomPay ) ;
     }else if (stype.equals("B")) {
-        totalCountLow= rs.getInt("pay_001")+(rs.getInt("pay_001") * rs.getInt("pay_003") )+(rs.getInt("pay_001") * rs.getInt("pay_004") )+(rs.getInt("pay_XCODE") * roomPay ) ;
-        totalCountHigh=rs.getInt("pay_002")+(rs.getInt("pay_002") * rs.getInt("pay_003") )+(rs.getInt("pay_002") * rs.getInt("pay_004") )+(rs.getInt("pay_LOGS") * roomPay ) ;
+        totalCountLow= (rs.getInt("pay_001") * rs.getDouble("pay_003") )+(rs.getInt("pay_001") * rs.getDouble("pay_004") )+(rs.getInt("pay_XCODE") * roomPay ) ;
+       totalCountHigh= (rs.getInt("pay_002") * rs.getDouble("pay_003") )+(rs.getInt("pay_002") * rs.getDouble("pay_004") )+(rs.getInt("pay_LOGS")  * roomPay ) ;
     }else if (stype.equals("C")) {
-        totalCountLow=rs.getInt("pay_001")+rs.getInt("pay_003")+rs.getInt("pay_005")+rs.getInt("pay_007") ;
-        totalCountHigh=rs.getInt("pay_002")+rs.getInt("pay_004")+rs.getInt("pay_006")+rs.getInt("pay_008") ;
+        totalCountLow =rs.getDouble("pay_001")+rs.getInt("pay_003")+rs.getInt("pay_005")+rs.getInt("pay_007") ;
+        totalCountHigh=rs.getDouble("pay_002")+rs.getInt("pay_004")+rs.getInt("pay_006")+rs.getInt("pay_008") ;
     }
     op.closestmt();
  
@@ -371,9 +371,9 @@ String introduce0 = "無!";
     <th>試算金額：</th>
     <td><p>新台幣<span class="rr">
    
-    &nbsp;<%=totalCountLow%>
+    &nbsp;<%=(int)Math.round(totalCountLow)%>
     ~
-    &nbsp;<%=totalCountHigh%>
+    &nbsp;<%=(int)Math.round(totalCountHigh)%>
     元</span><a href="https://tw.money.yahoo.com/currency_exc_result?amt=1&from=USD&to=TWD" target="new">匯率換算</a></p>
     </td>
   </tr>
