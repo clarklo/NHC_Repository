@@ -9,15 +9,18 @@ String update_ROOM_NAME ="";
 String update_ROOM_DESC ="";
 int update_ROOM_PAY =0;
 int update_ROOM_ID =0;
+String ProessName="新 增" ;
+
 if(request.getParameter("UpdateID")!=null){
 	update_ROOM_ID = Integer.parseInt(request.getParameter("UpdateID"));
 	rs1 = op.query("SELECT * FROM PAYROOM WHERE room_id ="+update_ROOM_ID);
 	rs1.next();
-	  update_ROOM_NAME = rs1.getString("ROOM_NAME");
-	  update_ROOM_DESC = rs1.getString("ROOM_DESC");
-          update_ROOM_PAY = rs1.getInt("ROOM_PAY");
-          update_ROOM_ID = rs1.getInt("ROOM_ID");
+	update_ROOM_NAME = rs1.getString("ROOM_NAME");
+	update_ROOM_DESC = rs1.getString("ROOM_DESC");
+        update_ROOM_PAY = rs1.getInt("ROOM_PAY");
+        update_ROOM_ID = rs1.getInt("ROOM_ID");
 	op.closestmt();
+        ProessName="修 改" ;
 }
 %>
 <html>
@@ -28,11 +31,11 @@ if(request.getParameter("UpdateID")!=null){
 <script language="javascript">
 <!--
 function checker(){
-    	if(Link.txtRoomID.value == "0"){
-		alert("病房流水號不能為0,請按修改資料!");
-		//Link.txtRoomID.focus();
-		return false;
-	}
+//    	if(Link.txtRoomID.value == "0"){
+//		alert("病房流水號不能為0,請按修改資料!");
+//		//Link.txtRoomID.focus();
+//		return false;
+//	}
 	if(Link.txtRoomName.value == ""){
 		alert("病房名稱不能為空,請輸入病房名稱!");
 		Link.txtRoomName.focus();
@@ -67,9 +70,21 @@ function checker2(){
 	}
 	return true;
 }
-
+ function del_check(id,p)
+{
+	var ok;
+	ok=confirm("您是確定要刪除【"+p+"】嗎？");
+	if(ok)
+	{
+		self.location.href="delPatientRoom.jsp?Room_ID="+id  ;
+	}
+}
+ function resetClick()
+{
+    self.location.href="PatientRoomAdmin.jsp" ;
+}
 function selected(){
-	Link.name.focus();
+	Link.txtRoomName.focus();
 }
 -->
 </script>
@@ -114,7 +129,8 @@ function selected(){
   </tr>
   <tr> 
     <td height="25" colspan="2" align="center"><div align="center">
-      <input type="submit" name="Submit" value="修 改"> 
+       <input type="submit" name="Submit" value="<%=ProessName%>"> 
+       <input name="Reset" type="button" id="Reset" value="重 置" onClick="javascript:resetClick()" >
     </div></td>
   </tr>
   </form>
@@ -124,7 +140,7 @@ function selected(){
     <td height="25" align="center"><div align="right">病房圖片</div></td>
     <td height="25" align="center"><div align="left">
     <input name="roomImgID" type="hidden" id="roomID" value="<%=update_ROOM_ID%>" >
-     <INPUT  size=60 type=file  name="file"> <input type="submit" name="Submit" value="修改圖片" > (只限使用jpg檔)
+     <INPUT  size=60 type=file  name="file"> <input type="submit" name="Submit" value="修改圖片" > (只限使用jpg檔，請先新增資料後再修改圖片)
     </div></td>
   </tr>
     </form>
@@ -188,7 +204,7 @@ function selected(){
     <td height="25" align="center"><div align="left"><%=ROOM_PAY%></div></td>
     <td height="25" align="center"><div align="left"><img src="../images/RoomImages/<%=ROOM_ID%>.jpg" width="149" height="109" alt="<%=ROOM_DESC%>" /></a></div></td>
 
-    <td align="center" height="25"><a href="PatientRoomAdmin.jsp?UpdateID=<%=ROOM_ID%>">修 改</a> </td>
+    <td align="center" height="25"><a href="PatientRoomAdmin.jsp?UpdateID=<%=ROOM_ID%>">修 改</a>| <a onClick="javascript:del_check(<%=ROOM_ID%>,'<%=ROOM_NAME%>')" class="A">刪 除</a> </td>
   </tr>
   <%
     }

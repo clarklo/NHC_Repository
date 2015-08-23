@@ -16,6 +16,7 @@ String updPAY_004 = "";
 String updPAY_005 = "";
 String updPAY_006 = "";
 String updPAY_007 = "";
+String ProessName="新 增" ;
 
 
 if(request.getParameter("UpdateID")!=null){
@@ -32,8 +33,8 @@ if(request.getParameter("UpdateID")!=null){
         updPAY_005 = rs.getString("PAY_005");
         updPAY_006 = rs.getString("PAY_006");
         updPAY_007 = rs.getString("PAY_007");
-        
-	op.closestmt();
+        op.closestmt();
+        ProessName="修 改" ;
 }
 %>
 <html>
@@ -44,10 +45,10 @@ if(request.getParameter("UpdateID")!=null){
 <script language="javascript">
 <!--
 function checker(){
-        if(PayCont.updPAY_ID.value == 0){
-		alert("請先選擇修改項目!");
-		return false;
-	}
+//        if(PayCont.updPAY_ID.value == 0){
+//		alert("請先選擇修改項目!");
+//		return false;
+//	}
 	if(PayCont.PAY_TYPE_name.value == ""){
 		alert("項目名稱不能為空,請輸入項目名稱!");
 		PayCont.PAY_TYPE_name.focus();
@@ -146,7 +147,19 @@ function checker(){
         
         return true;
 }
- 
+ function del_check(id,p,payType)
+{
+	var ok;
+	ok=confirm("您是確定要刪除【"+p+"】嗎？");
+	if(ok)
+	{
+		self.location.href="delPayCont.jsp?updPAY_ID="+id + "&PAY_CONT_TYPE=" + payType ;
+	}
+}
+ function resetClick()
+{
+    self.location.href="PayContAdmin.jsp" ;
+}
 function selected(){
 	PayCont.PAY_TYPE_name.focus();
 }
@@ -210,8 +223,8 @@ function selected(){
       <input name="PAY_008" type="hidden" id="PAY_008" value="0" >
       <input name="PAY_CONT_TYPE" type="hidden" id="PAY_CONT_TYPE" value="A" >
       <input name="updPAY_ID" type="hidden" id="updPAY_ID" value="<%=updPAY_ID%>" >
-      <input type="submit" name="Submit" value="修 改"> 
-       <input name="Reset" type="reset" id="Reset" value="重 置">
+      <input type="submit" name="Submit" value="<%=ProessName%>"> 
+       <input name="Reset" type="button" id="Reset" value="重 置" onClick="javascript:resetClick()" >
     </div></td>
   </tr>
   </form>
@@ -301,7 +314,7 @@ function selected(){
     <td height="25" align="center"><div align="left"><%=PAY_007%></div></td>
     <td height="25" align="center"><div align="left"><%=PAY_009%></div></td>
     <td height="25" align="center"><div align="left"><%=PAY_DATETIME%></div></td>
-    <td align="center" height="25"><a href="PayContAdmin.jsp?UpdateID=<%=PAY_id%>">修 改</a>  </td>
+    <td align="center" height="25"><a href="PayContAdmin.jsp?UpdateID=<%=PAY_id%>">修 改</a>  | <a onClick="javascript:del_check(<%=PAY_id%>,'<%=PAY_TYPE_CHT%>','A')" class="A">刪 除</a> </td>
   </tr>
   <%
     }

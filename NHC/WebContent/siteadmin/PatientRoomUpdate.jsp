@@ -15,17 +15,26 @@
 
     Operation op = new Operation();
     String sSql ="";
-    sSql="Update PAYROOM SET ROOM_NAME='" + RoomName + "'" ;
-    sSql+=",ROOM_DESC='" + RoomDesc + "'" ;
-    sSql+=",ROOM_PAY='" + RoomPay + "'" ;
-    sSql+=" where ROOM_ID=" + RoomID + " " ;
+    if (RoomID.equals("0")){
+          sSql="Insert into PAYROOM (ROOM_NAME,ROOM_DESC,ROOM_PAY) Values (" ;
+          sSql+=" '" + RoomName + "'" ;
+          sSql+=",'" + RoomDesc + "'" ;
+          sSql+=",'" + RoomPay + "'" ;
+          sSql+=")" ;
+    }else {
+          sSql="Update PAYROOM SET ROOM_NAME='" + RoomName + "'" ;
+          sSql+=",ROOM_DESC='" + RoomDesc + "'" ;
+          sSql+=",ROOM_PAY='" + RoomPay + "'" ;
+          sSql+=" where ROOM_ID=" + RoomID + " " ;
+    }
+  
     op.update(sSql);
     op.closestmt();
      
 %> 
 <script language="javascript">
 <!-- 
-    alert("修改成功");
+    alert("更新成功");
     window.location.replace("PatientRoomAdmin.jsp");
 -->
 </script>

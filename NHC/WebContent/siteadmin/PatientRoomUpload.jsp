@@ -24,6 +24,7 @@ com.jspsmart.upload.File myFile = mySmartUpload.getFiles().getFile(i);
 if (!myFile.isMissing())
 {
 
+    
     //取得上载的文件的文件名
     String myFileName=myFile.getFileName();
     //取得不带后缀的文件名
