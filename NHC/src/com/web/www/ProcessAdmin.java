@@ -1,9 +1,9 @@
 package com.web.www;
 
 /**
- * <p>Title: ¾ã¯¸¨t²Î1.0</p>
+ * <p>Title: æ•´ç«™ç³»çµ±1.0</p>
  *
- * <p>Description: ³B²zºŞ²z­û</p>
+ * <p>Description: è™•ç†ç®¡ç†å“¡</p>
  *
  * <p>Copyright: Copyright (c) 2013</p>
  *
@@ -15,21 +15,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.web.database.Operation;
-import com.web.util.GetDate;
-import com.web.util.MD5;
+import util.GetDate;
+import util.MD5;
 
 public class ProcessAdmin {
-	//¼Æ¾Ú®w¾Ş§@¹ï¶H
+	//æ•¸æ“šåº«æ“ä½œå°è±¡
 	private Operation op;
-	//SQL»y¥y
+	//SQLèªå¥
 	private String sql;
-	//°O¿ı¶°¹ï¶H
+	//è¨˜éŒ„é›†å°è±¡
 	private ResultSet rs;
-	//ºŞ²z­û¹ï¶H
+	//ç®¡ç†å“¡å°è±¡
 	private Admin admin=new Admin();
-	//ªğ¦^°T®§
+	//è¿”å›è¨Šæ¯
 	private String msg;
-	//ªğ¦^ª¬ºA
+	//è¿”å›ç‹€æ…‹
 	private boolean status;
 
 	public ProcessAdmin() {
@@ -66,7 +66,7 @@ public class ProcessAdmin {
 	}
 
 	/**
-	 * ÀË¬d¥Î¤á¬O§_¦s¦b,¦pªG¦s¦bªğ¦^true,§_«hªğ¦^false
+	 * æª¢æŸ¥ç”¨æˆ¶æ˜¯å¦å­˜åœ¨,å¦‚æœå­˜åœ¨è¿”å›true,å¦å‰‡è¿”å›false
 	 */
 	private boolean checkExist() throws ClassNotFoundException, SQLException{
 		try{
@@ -91,8 +91,8 @@ public class ProcessAdmin {
 		return false;
    }
 
-   /**
-	* ¥Î¤áµn¿ıÅçµı¡Astatus¬°true,«h¬O¦Xªk¥Î¤á,status¬°false¬O«Dªk¥Î¤á,¨Ã¥Bmsgµ¹¥X¤£¦¨¥\ªº´£¥Ü°T®§
+  /**
+	* ç”¨æˆ¶ç™»éŒ„é©—è¨¼ï¼Œstatusç‚ºtrue,å‰‡æ˜¯åˆæ³•ç”¨æˆ¶,statusç‚ºfalseæ˜¯éæ³•ç”¨æˆ¶,ä¸¦ä¸”msgçµ¦å‡ºä¸æˆåŠŸçš„æç¤ºè¨Šæ¯
 	*/
    public void  checkLogin() throws ClassNotFoundException, SQLException{
 	   try{
@@ -104,8 +104,8 @@ public class ProcessAdmin {
 			   rs = op.query(sql);
 
 			   if (rs.next()) {
-				   //¦Xªk¥Î¤á
-				   //Åª¨úºŞ²z­û¬ÛÃö°T®§
+				   //åˆæ³•ç”¨æˆ¶
+				   //è®€å–ç®¡ç†å“¡ç›¸é—œè¨Šæ¯
 				   admin.setId(rs.getInt("cms_admin_id"));
 				   admin.setName(rs.getString("cms_admin_name"));
 				   admin.setPermission(rs.getString("cms_admin_auth"));
@@ -113,22 +113,22 @@ public class ProcessAdmin {
 				   admin.setIsAdmin(rs.getInt("cms_admin_system"));
 				   admin.setLogins(rs.getInt("cms_admin_times"));
 
-				   //§ó·sµn¿ı®É¶¡
+				   //æ›´æ–°ç™»éŒ„æ™‚é–“
 				   sql = "UPDATE cms_admin SET cms_admin_lastlogon='" + GetDate.getStringDate()+ "',cms_admin_times=cms_admin_times+1 WHERE cms_admin_id="+admin.getId();
 				   op.update(sql);
 
 				   status = true;
 			   }
 			   else {
-				   //¥Î¤á±K½X¿ù»~
+				   //ç”¨æˆ¶å¯†ç¢¼éŒ¯èª¤
 				   status = false;
-				   msg = admin.getUsername() + "ªº±K½X¿ù»~¡A½Ğ­«·sµn¿ı¡T";
+				   msg = admin.getUsername() + "çš„å¯†ç¢¼éŒ¯èª¤ï¼Œè«‹é‡æ–°ç™»éŒ„ï¹—";
 			   }
 		   }
 		   else {
-			   //¥Î¤á¤£¦s¦b
+			   //ç”¨æˆ¶ä¸å­˜åœ¨
 			   status = false;
-			   msg = "¹ï¤£°_¡A¨S¦³" + admin.getUsername() + "¡T";
+			   msg = "å°ä¸èµ·ï¼Œæ²’æœ‰" + admin.getUsername() + "ï¹—";
 		   }
 	   }
 	   catch(SQLException e){
@@ -142,14 +142,14 @@ public class ProcessAdmin {
 	   
 	}
 	/**
-	 * ²K¥[ºŞ²z­û
+	 * æ·»åŠ ç®¡ç†å“¡
 	 */
 	public void add() throws Exception, SQLException{
 		try{
 			op = new Operation();
 			sql = "SELECT * FROM cms_admin WHERE cms_admin_code='"+admin.getUsername()+"'";
 			rs = op.query(sql);
-			//ÀË´ú¥Î¤á¦W¬O§_¦s¦b?
+			//æª¢æ¸¬ç”¨æˆ¶åæ˜¯å¦å­˜åœ¨?
 			if(!rs.next()){
 				sql = "INSERT cms_admin(cms_admin_code, cms_admin_name, cms_admin_psw, cms_admin_auth, cms_admin_lastlogon, cms_admin_times, cms_admin_system) VALUES('" +
 					admin.getUsername() + "','" + admin.getName() + "','" +
@@ -160,7 +160,7 @@ public class ProcessAdmin {
 				status = true;
 			}
 			else{
-				msg = admin.getUsername()+"¤w¦s¦b,½Ğ´«­Ó¥Î¤á¦W¸Õ¸Õ!";
+				msg = admin.getUsername()+"å·²å­˜åœ¨,è«‹æ›å€‹ç”¨æˆ¶åè©¦è©¦!";
 				status = false;
 			}
 		}
@@ -174,7 +174,7 @@ public class ProcessAdmin {
 	}
 
 	/**
-	 * ­×§ïcms_admin_name,±K½X¤ÎÅv­­
+	 * ä¿®æ”¹cms_admin_name,å¯†ç¢¼åŠæ¬Šé™
 	 */
 	public void mod(String password) throws Exception, SQLException{
 		try{
@@ -212,7 +212,7 @@ public class ProcessAdmin {
 		}
 	}
 	/**
-	 * ­×§ï±K½X
+	 * ä¿®æ”¹å¯†ç¢¼
 	 */
 	public void modPassword(int id, String oldPassword, String newPassword) throws Exception, SQLException{
 		try{
@@ -229,7 +229,7 @@ public class ProcessAdmin {
 				status = true;
 			}
 			else{
-				msg = "±z¿é¤JªºÂÂ±K½X¤£¥¿½T,½Ğ­«·s¿é¤J!";
+				msg = "æ‚¨è¼¸å…¥çš„èˆŠå¯†ç¢¼ä¸æ­£ç¢º,è«‹é‡æ–°è¼¸å…¥!";
 				status = false;
 			}
 		}
@@ -243,7 +243,7 @@ public class ProcessAdmin {
 	}
 
 	/**
-	 * §R°£ºŞ²z­û
+	 * åˆªé™¤ç®¡ç†å“¡
 	 */
 	public void del(int id) throws Exception, SQLException{
 		try{
@@ -251,7 +251,7 @@ public class ProcessAdmin {
 			sql = "DELETE FROM cms_admin WHERE cms_admin_id="+id;
 			op.update(sql);
 
-			//§R°£¦¹ºŞ²z­ûªºÄæ¥ØºŞ²zÅv­­
+			//åˆªé™¤æ­¤ç®¡ç†å“¡çš„æ¬„ç›®ç®¡ç†æ¬Šé™
 			sql = "DELETE FROM cms_permision WHERE cms_admin_id="+id;
 			op.update(sql);
 

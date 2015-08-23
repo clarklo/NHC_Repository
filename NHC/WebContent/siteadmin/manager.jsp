@@ -15,7 +15,7 @@ if(request.getParameter("id")!=null){
 	id = Integer.parseInt(request.getParameter("id"));
 	rs = op.query("SELECT * FROM cms_admin WHERE cms_admin_id="+id);
 	rs.next();
-	username0 = rs.getString("cms_admin_id");
+	username0 = rs.getString("CMS_ADMIN_CODE");
 	password0 = rs.getString("cms_admin_psw");
 	name0 = rs.getString("cms_admin_name");
 	permission0 = rs.getString("cms_admin_auth");
@@ -175,7 +175,7 @@ function selected(){
   int j = 0;
   while(rs.next()){
   	  int id1 = rs.getInt("cms_admin_id");
-	  String username1 = rs.getString("cms_admin_id");
+	  String username1 = rs.getString("CMS_ADMIN_CODE");
 	  j++;
   %>
   <tr> 
