@@ -151,7 +151,7 @@ public class ProcessAdmin {
 			rs = op.query(sql);
 			//檢測用戶名是否存在?
 			if(!rs.next()){
-				sql = "INSERT cms_admin(cms_admin_code, cms_admin_name, cms_admin_psw, cms_admin_auth, cms_admin_lastlogon, cms_admin_times, cms_admin_system) VALUES('" +
+				sql = "INSERT into cms_admin(cms_admin_code, cms_admin_name, cms_admin_psw, cms_admin_auth, cms_admin_lastlogon, cms_admin_times, cms_admin_system) VALUES('" +
 					admin.getUsername() + "','" + admin.getName() + "','" +
 					admin.getPassword() + "','" + admin.getPermission() + "','" +
 					admin.getLastLogin() + "',"+admin.getLogins()+","+admin.getIsAdmin()+")";

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.web.www.*;
+import www.LeaveWordClass;
+import www.ProcessLeaveWordClass;
 
 public class AddLeaveWordClass extends HttpServlet {
 
@@ -79,7 +81,7 @@ public class AddLeaveWordClass extends HttpServlet {
 			if(plwc.LeaveWordIsExist(id))
 			{
 				out.write("<script language=\"javascript\">\r\n");
-			      out.write("alert(\"¸ÓÃþ§O¤U¦³¸ê®Æ¡A½Ð¥ý§R°£¸ÓÃþ§O¤Uªº¬ÛÃö°T®§\");\r\n");
+			      out.write("alert(\"ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Uï¿½ï¿½ï¿½ï¿½Æ¡Aï¿½Ð¥ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½ï¿½\");\r\n");
 			      out.write("history.go(-1);\r\n");
 			      out.write("</script>\r\n");
 			      check=false;

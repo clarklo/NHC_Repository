@@ -1,9 +1,9 @@
 package com.web.www;
 
 /**
- * <p>Title: ¾ã¯¸¨t²Î1.0</p>
+ * <p>Title: ï¿½ã¯¸ï¿½tï¿½ï¿½1.0</p>
  *
- * <p>Description: ¤å³¹JavaBean</p>
+ * <p>Description: ï¿½å³¹JavaBean</p>
  *
  * <p>Copyright: Copyright (c) 2013</p>
  *
@@ -11,48 +11,48 @@ package com.web.www;
  *
  * @version 1.0
  */
-import com.web.util.GetDate;
+import util.GetDate;
 
 public class Article {
-	//¤å³¹½s¸¹
+	//ï¿½å³¹ï¿½sï¿½ï¿½
 	private String id;
-	//©Ò¦bÃþ§O
+	//ï¿½Ò¦bï¿½ï¿½ï¿½O
 	private int cid;
-	//¤å³¹¼ÐÃD
+	//ï¿½å³¹ï¿½ï¿½ï¿½D
 	private String title;
-	//§@ªÌ
+	//ï¿½@ï¿½ï¿½
 	private String author;
-	//¤å³¹¨Ó·½
+	//ï¿½å³¹ï¿½Ó·ï¿½
 	private String from;
-	//ÃöÁä¦r
+	//ï¿½ï¿½ï¿½ï¿½r
 	private String keyword;
-	//ºK­n
+	//ï¿½Kï¿½n
 	private String summary;
-	//¤å³¹¤º®e
+	//ï¿½å³¹ï¿½ï¿½ï¿½e
 	private String content;
-	//­º­¶¹Ï¤ù
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ï¤ï¿½
 	private String indexImage;
-	//©T³»
+	//ï¿½Tï¿½ï¿½
 	private int top;
-	//ºu°Ê
+	//ï¿½uï¿½ï¿½
 	private int scroll;
-	//±ÀÂË
+	//ï¿½ï¿½ï¿½ï¿½
 	private int commend;
-	//±ÀÂËµ¥¯Å
+	//ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½
 	private int level;
-	//HTMLÀÉ®×
+	//HTMLï¿½É®ï¿½
 	private String html;
-	//µo¥¬®É¶¡
+	//ï¿½oï¿½ï¿½ï¿½É¶ï¿½
 	private String time;
-	//µo¥¬®É¶¡
+	//ï¿½oï¿½ï¿½ï¿½É¶ï¿½
 	private String time1;
-	//µo¥¬®É¶¡
+	//ï¿½oï¿½ï¿½ï¿½É¶ï¿½
 	private String time2;
-	//µo¥¬¤H
+	//ï¿½oï¿½ï¿½ï¿½H
 	private String username;
-	//ÂIÀ»¦¸¼Æ
+	//ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private int count;
-	//¤¹³\µû½×§_
+	//ï¿½ï¿½ï¿½\ï¿½ï¿½×§_
 	private int comment;
 
     public Article() {

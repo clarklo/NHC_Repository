@@ -7,7 +7,6 @@
 <link href="../css/vghks_LAYOUT.css" rel="stylesheet" type="text/css" />
 <link href="../css/contentLAYOUT.css" rel="stylesheet" type="text/css" />
 <link href="../css/reset.css" rel="stylesheet" type="text/css" />
-
 <script type="text/javascript" src="../js/jquery-1.5.2.min.js"></script>
 
 <script type="text/javascript" src="../js/6-8-001-2.js"></script>

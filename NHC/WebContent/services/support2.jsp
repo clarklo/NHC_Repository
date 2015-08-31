@@ -131,8 +131,7 @@ function checkthis(){
 			<input name="user_tel" class="w_in10" type="text" maxlength="16" size="20">
 		</li>
 	   </ul>
-	 
-	 
+	 	 
 	   <h1>請選擇方便聯絡時間：</h1>
 	   <ul>
 		<li><input name="user_company" type="radio" value="08:00~10:00" checked="checked"> 08:00~10:00</li>

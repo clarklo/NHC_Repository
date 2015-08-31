@@ -3,9 +3,9 @@ package com.web.www;
 import java.sql.ResultSet;
 
 import com.web.database.*;
-import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
+import www.LeaveWord;
 
 public class ProcessLeaveWord {
 

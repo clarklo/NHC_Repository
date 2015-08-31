@@ -56,7 +56,7 @@ function del_check(id,p)
 	ok=confirm("您是確定要刪除【"+p+"】嗎？");
 	if(ok)
 	{
-		self.location.href="dellea1site.jsp?id="+id;
+		self.location.href="delLeaveWord.jsp?id="+id + "&type=2";
 	}
 }
 function CheckAll(form)
@@ -69,7 +69,7 @@ function CheckAll(form)
     }
 }
 function selected(){
-	Link.name.focus();
+	
 }
 -->
 </script>
@@ -90,7 +90,7 @@ function selected(){
     <td width="37%" align="center" background="images/tablebg.gif"><strong>預約內容</strong></td>
     <td width="10%" align="center" background="images/tablebg.gif"><strong>聯絡時間</strong></td>
     <td width="7%" align="center" background="images/tablebg.gif"><strong>聯絡電話</strong></td>
-    <!--<td width="17%" height="25" align="center" background="images/tablebg.gif"><strong>管 理</strong></td>-->
+    <td width="17%" height="25" align="center" background="images/tablebg.gif"><strong>管 理</strong></td>
   </tr>
     <%
   	//當前頁
@@ -139,12 +139,12 @@ function selected(){
   %>
   <tr>
     <td height="25" align="center"><input type="checkbox" name="id<%=j%>" value="<%=id1%>"></td>
-    <td height="25" align="center"><div align="left"><%=name1%></div></td>
+    <td height="25" align="center"><a href=leavewordReply2.jsp?id=<%=id1%> title="點擊這裡檢視此留言" class="blue"><div align="left"><%=name1%></div></td>
     <td height="25" align="center"><div align="left"><%=introduce1%></div></td>
     <td height="25" align="center"><%=url1%></td>
     <td height="25" align="center"><%=commend1%></td>
     <td height="25" align="center"><%=check1%></td>
-    <!--<td align="center" height="25">| <a onClick="javascript:del_check(<%=id1%>,'<%=name1%>')" class="A">刪 除</a></td>-->
+    <td align="center" height="25"> <a onClick="javascript:del_check(<%=id1%>,'<%=name1%>')" class="A">刪 除</a></td>
   </tr>
   <%
   }
@@ -156,7 +156,7 @@ function selected(){
 &nbsp;&nbsp;&nbsp;
 <a href="ptexecel1.jsp" class="red_link">匯出EXCEL</a>
 &nbsp;&nbsp;&nbsp;
-<!-- <input name="del" type="submit" id="del" onClick="{if(confirm('確定刪除選定的目錄嗎?')){submit();return true;}return false;}" value="刪 除"> -->
+
 </strong></div></td>
   </tr>
 </form>  

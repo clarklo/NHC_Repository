@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.util.page;
 import com.web.www.ProcessUserMan;
+import util.page;
 
 public class UserList extends HttpServlet {
 
@@ -47,14 +47,14 @@ public class UserList extends HttpServlet {
 			throws ServletException, IOException {
         
 		/**
-		 * ¥H¤U°Ñ¼Æ¥ÑuserList.jsp­¶­±¶Ç¹L¨Óªº¬d¸ß±ø¥ó
+		 * ï¿½Hï¿½Uï¿½Ñ¼Æ¥ï¿½userList.jspï¿½ï¿½ï¿½ï¿½ï¿½Ç¹Lï¿½Óªï¿½ï¿½dï¿½ß±ï¿½ï¿½
 		 */
-		String check=request.getParameter("check");//¼f®Öª¬ºA
-		String loginname=request.getParameter("loginname");//µn¿ý¦W
+		String check=request.getParameter("check");//ï¿½fï¿½Öªï¿½ï¿½A
+		String loginname=request.getParameter("loginname");//ï¿½nï¿½ï¿½W
 		String userid=request.getParameter("userid");
-		//¥H¤U°Ñ¼Æ¥ÑuserList.jsp­¶­±¶Ç¹L¨Óªº±Æ§Ç°Ñ¼Æ
-		//String order=request.getParameter("order");//0¬°«ö­Ó¤H¿n¤À±Æ§Ç¡A¢°¬°«ö°]´I±Æ§Ç
-		//¥H¤U¬°¼f®Ö·|­û
+		//ï¿½Hï¿½Uï¿½Ñ¼Æ¥ï¿½userList.jspï¿½ï¿½ï¿½ï¿½ï¿½Ç¹Lï¿½Óªï¿½ï¿½Æ§Ç°Ñ¼ï¿½
+		//String order=request.getParameter("order");//0ï¿½ï¿½ï¿½ï¿½ï¿½Ó¤Hï¿½nï¿½ï¿½ï¿½Æ§Ç¡Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]ï¿½Iï¿½Æ§ï¿½
+		//ï¿½Hï¿½Uï¿½ï¿½ï¿½fï¿½Ö·|ï¿½ï¿½
 		String flag=request.getParameter("flag");
 		String id=request.getParameter("id");
 		ProcessUserMan pu=new ProcessUserMan();
@@ -63,18 +63,18 @@ public class UserList extends HttpServlet {
 		else if(flag!=null&&!"".equals(flag)&&"1".equals(flag))
 			pu.noLogin(id);
 		
-		//ºc³ySQL»y¥y
+		//ï¿½cï¿½ySQLï¿½yï¿½y
 		String sql="select user_man_id,user_man_loginname,user_man_name,user_man_mobile," +
 				"user_man_email,user_man_flag from user_man where 1=1 ";
 		//##mysql##String sql="select user_man_id,user_man_loginname,user_man_name,user_man_mobile," +
 		//##mysql##		"user_man_email,user_man_flag from user_man where 1=1 ";
-		if(check!=null&&!"".equals(check)&&!"½Ð¿ï¾Ü".equals(check))
+		if(check!=null&&!"".equals(check)&&!"ï¿½Ð¿ï¿½ï¿½".equals(check))
 			sql=sql+" and user_man_flag="+check;
 		if(loginname!=null&&!"".equals(loginname))
 			sql=sql+" and user_man_loginname='"+loginname+"' ";
 		if(userid!=null&&!"".equals(userid))
 			sql=sql+" and user_man_id='"+userid+"' ";
-		/*if(order!=null&&!"".equals(order)&&"0".equals(order)&&!"½Ð¿ï¾Ü".equals(order))
+		/*if(order!=null&&!"".equals(order)&&"0".equals(order)&&!"ï¿½Ð¿ï¿½ï¿½".equals(order))
 			sql=sql+" order by user_man_score desc";
 		else if(order!=null&&!"".equals(order)&&"1".equals(order))
 			sql=sql+" order by user_man_coin desc";*/

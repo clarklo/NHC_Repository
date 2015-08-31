@@ -56,7 +56,7 @@ function del_check(id,p)
 	ok=confirm("您是確定要刪除【"+p+"】嗎？");
 	if(ok)
 	{
-		self.location.href="dellea1site.jsp?id="+id;
+		self.location.href="delLeaveWord.jsp?id="+id + "&type=1";
 
 	}
 }
@@ -70,7 +70,7 @@ function CheckAll(form)
     }
 }
 function selected(){
-	Link.name.focus();
+	
 }
 -->
 </script>
@@ -91,7 +91,7 @@ function selected(){
     <td width="37%" align="center" background="images/tablebg.gif"><strong>預約內容</strong></td>
     <td width="10%" align="center" background="images/tablebg.gif"><strong>EMAIL</strong></td>
     <td width="7%" align="center" background="images/tablebg.gif"><strong>聯絡電話</strong></td>
-    <!--<td width="17%" height="25" align="center" background="images/tablebg.gif"><strong>管 理</strong></td>-->
+   <td width="17%" height="25" align="center" background="images/tablebg.gif"><strong>管 理</strong></td>
   </tr>
     <%
   	//當前頁
@@ -145,7 +145,7 @@ function selected(){
     <td height="25" align="center"><%=url1%></td>
     <td height="25" align="center"><%=username1%></td>
     <td height="25" align="center"><%=check1%></td>
-    <!--<td align="center" height="25">| <a onClick="javascript:del_check(<%=id1%>,'<%=name1%>')" class="A">刪 除</a></td>-->
+    <td align="center" height="25"> <a onClick="javascript:del_check(<%=id1%>,'<%=name1%>')" class="A">刪 除</a></td>
   </tr>
   <%
   }

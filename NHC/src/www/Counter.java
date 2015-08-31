@@ -1,9 +1,9 @@
 package www;
 
 /**
- * <p>Title: ¾ã¯¸¨t²Î1.0</p>
+ * <p>Title: ï¿½ã¯¸ï¿½tï¿½ï¿½1.0</p>
  *
- * <p>Description: ¬y¶q²Î­pJavaBean</p>
+ * <p>Description: ï¿½yï¿½qï¿½Î­pJavaBean</p>
  *
  * <p>Copyright: Copyright (c) 2013</p>
  *
@@ -13,47 +13,46 @@ package www;
  */
 import java.sql.*;
 import com.web.database.*;
-import com.web.util.GetDate;
-import java.util.*;
+import util.GetDate;
 
 public class Counter {
-	// ½s¸¹
+	// ï¿½sï¿½ï¿½
 	private int id;
 
-	// ²Î­p®É¶¡
+	// ï¿½Î­pï¿½É¶ï¿½
 	private String startdate;
 
-	// Á`³X°Ý¶q
+	// ï¿½`ï¿½Xï¿½Ý¶q
 	private int totalcount;
 
-	// ¤W¤ë³X°Ý¶q
+	// ï¿½Wï¿½ï¿½Xï¿½Ý¶q
 	private int lastmonthcount;
 
-	// ¥»¤ë®É¶¡
+	// ï¿½ï¿½ï¿½ï¿½É¶ï¿½
 	private String thismonth;
 
-	// ¥»¤ë³X°Ý¶q
+	// ï¿½ï¿½ï¿½ï¿½Xï¿½Ý¶q
 	private int thismonthcount;
 
-	// ¬Q¤é³X°Ý¶q
+	// ï¿½Qï¿½ï¿½Xï¿½Ý¶q
 	private int yestodaycount;
 
-	// ¤µ¤Ñ®É¶¡
+	// ï¿½ï¿½ï¿½Ñ®É¶ï¿½
 	private String today;
 
-	// ¤µ¤é³X°Ý¶q
+	// ï¿½ï¿½ï¿½ï¿½Xï¿½Ý¶q
 	private int todaycount;
 
-	// ¤Ñ³Ì¤j³X°Ý¶q®É¶¡
+	// ï¿½Ñ³Ì¤jï¿½Xï¿½Ý¶qï¿½É¶ï¿½
 	private String maxday;
 
-	// ¤Ñ³Ì¤j³X°Ý¶q
+	// ï¿½Ñ³Ì¤jï¿½Xï¿½Ý¶q
 	private int maxdaycount;
 
-	// ¤ë³Ì¤j³X°Ý¶q®É¶¡
+	// ï¿½ï¿½Ì¤jï¿½Xï¿½Ý¶qï¿½É¶ï¿½
 	private String maxmonth;
 
-	// ¤ë³Ì¤j³X°Ý¶q
+	// ï¿½ï¿½Ì¤jï¿½Xï¿½Ý¶q
 	private int maxmonthcount;
 
 	public Counter() {
@@ -73,7 +72,7 @@ public class Counter {
 	}
 
 	/**
-	 * ªì©l¤Æ­p¼Æ¾¹
+	 * ï¿½ï¿½lï¿½Æ­pï¿½Æ¾ï¿½
 	 */
 	public void init() throws ClassNotFoundException, SQLException {
 		Operation op = new Operation();
@@ -105,7 +104,7 @@ public class Counter {
 	}
 
 	/**
-	 * ­p¼Æ¾¹¥[1
+	 * ï¿½pï¿½Æ¾ï¿½ï¿½[1
 	 */
 	public void add() throws ClassNotFoundException, SQLException {
 		Operation op = new Operation();
@@ -124,7 +123,7 @@ public class Counter {
 	}
 
 	/**
-	 * §ó·s­p¼Æ¾¹
+	 * ï¿½ï¿½sï¿½pï¿½Æ¾ï¿½
 	 */
 	public void update() throws ClassNotFoundException, SQLException {
 		Operation op = new Operation();

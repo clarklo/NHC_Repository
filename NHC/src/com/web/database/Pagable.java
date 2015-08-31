@@ -1,9 +1,9 @@
 package com.web.database;
 
 /**
- * <p>Title: ¾ã¯¸¨t²Î1.0</p>
+ * <p>Title: æ•´ç«™ç³»çµ±1.0</p>
  *
- * <p>Description: ¤À­¶Åã¥Ü¾É¯è²Õ¥ó</p>
+ * <p>Description: åˆ†é é¡¯ç¤ºå°èˆªçµ„ä»¶</p>
  *
  * <p>Copyright: Copyright (c) 2012</p>
  *
@@ -13,21 +13,21 @@ package com.web.database;
  */
 public class Pagable {
 	/**
-	 *  currPage: ·í«e­¶¼Æ
-	 *  pageSize: ­¶¤j¤p
-	 *  pageCount: Á`­¶¼Æ
-	 *  totalRecord:Á`°O¿ı¼Æ
-	 *  ªğ¦^¦r¤¸¦ê¡J¤À­¶¾É¯è¦r¤¸¦ê
+	 *  currPage: ç•¶å‰é æ•¸
+	 *  pageSize: é å¤§å°
+	 *  pageCount: ç¸½é æ•¸
+	 *  totalRecord:ç¸½è¨˜éŒ„æ•¸
+	 *  è¿”å›å­—å…ƒä¸²ï¸°åˆ†é å°èˆªå­—å…ƒä¸²
 	 */
 	public static String navigator(int currPage, int pageSize, int pageCount, int totalRecord){
 		String addr;
 
 		addr = "<table width=100% border=0 align=center cellpadding=0 cellspacing=0>"+
 			   "<form method=Post name=navigatorForm><tr><td><div align=right>"+
-			   "·í«e²Ä<strong><font color=red>" + currPage + "</font></strong>­¶ " +
-			   "¦@<strong><font color=red>" + pageCount + "</font></strong>­¶ "+
-			   "¨C­¶<strong><font color=red>" + pageSize + "</font></strong>±ø "+
-			   "¦@<strong><font color=red>" + totalRecord + "</font></strong>±ø ";
+			   "ç•¶å‰ç¬¬<strong><font color=red>" + currPage + "</font></strong>é  " +
+			   "å…±<strong><font color=red>" + pageCount + "</font></strong>é  "+
+			   "æ¯é <strong><font color=red>" + pageSize + "</font></strong>æ¢ "+
+			   "å…±<strong><font color=red>" + totalRecord + "</font></strong>æ¢ ";
 
 		if(currPage > pageCount){
 			currPage = pageCount;
@@ -37,28 +37,28 @@ public class Pagable {
 		}
 
 		if(currPage < 2){
-			addr += "­º ­¶ ¤W¤@­¶ ";
+			addr += "é¦– é  ä¸Šä¸€é  ";
 		}
 		else{
-			addr += "<a href='javascript:document.navigatorForm.page.value=1;document.navigatorForm.submit();'>­º ­¶</a> ";
-			addr += "<a href='javascript:document.navigatorForm.page.value="+ (currPage - 1) +";document.navigatorForm.submit();'>¤W¤@­¶</a> ";
+			addr += "<a href='javascript:document.navigatorForm.page.value=1;document.navigatorForm.submit();'>é¦– é </a> ";
+			addr += "<a href='javascript:document.navigatorForm.page.value="+ (currPage - 1) +";document.navigatorForm.submit();'>ä¸Šä¸€é </a> ";
 		}
 
 		if(currPage >= pageCount){
-			addr += "¤U¤@­¶ §À ­¶ ";
+			addr += "ä¸‹ä¸€é  å°¾ é  ";
 		}
 		else{
-			addr += "<a href='javascript:document.navigatorForm.page.value="+ (currPage + 1) +";document.navigatorForm.submit();'>¤U¤@­¶</a> ";
-			addr += "<a href='javascript:document.navigatorForm.page.value="+ pageCount +";document.navigatorForm.submit();'>§À ­¶</a> ";
+			addr += "<a href='javascript:document.navigatorForm.page.value="+ (currPage + 1) +";document.navigatorForm.submit();'>ä¸‹ä¸€é </a> ";
+			addr += "<a href='javascript:document.navigatorForm.page.value="+ pageCount +";document.navigatorForm.submit();'>å°¾ é </a> ";
 		}
 
-		addr += "Âà¨ì¡J<select name='page' size='1' style='font-size: 9pt' onChange='javascript:document.navigatorForm.submit();'> ";
+		addr += "è½‰åˆ°ï¸°<select name='page' size='1' style='font-size: 9pt' onChange='javascript:document.navigatorForm.submit();'> ";
 		for(int i = 1; i <= pageCount; i ++){
 			if(i == currPage){
-				addr += "<option value=" + i + " selected>²Ä" + i + "­¶</option> ";
+				addr += "<option value=" + i + " selected>ç¬¬" + i + "é </option> ";
 			}
 			else{
-				addr += "<option value=" + i + ">²Ä" + i + "­¶</option> ";
+				addr += "<option value=" + i + ">ç¬¬" + i + "é </option> ";
 			}
 		}
 		addr += "</select></div></td></tr></form></table>";

@@ -25,7 +25,7 @@ function loginChedk(){
       <input name="loginname" type="text" class="txtfield" id="loginname" size="20" />
       
       <label for="password">密碼:</label>
-      <input name="password" type="password"  class="txtfield id="password" size="20" />
+      <input name="password" type="password"  id="password" size="20"  class="txtfield" />
       
       <div class="center">
 	  <input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>

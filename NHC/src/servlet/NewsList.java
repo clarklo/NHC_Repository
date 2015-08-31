@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.util.page;
+import util.page;
 
 public class NewsList extends HttpServlet {
 
@@ -58,7 +58,7 @@ public class NewsList extends HttpServlet {
 
 		String classid=request.getParameter("classid");
 		String type=request.getParameter("type");
-		System.out.println("Ãþ«¬¡J"+type);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½J"+type);
 		
 		String path="../index.jsp";
 		int row = 15;

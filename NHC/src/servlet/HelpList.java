@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.util.page;
+import util.page;
 
 public class HelpList extends HttpServlet {
 
 	/**
-	 * Åã¥Ü¤T¯ÅÄæ¥Ø²M³æ
+	 * ï¿½ï¿½Ü¤Tï¿½ï¿½ï¿½ï¿½Ø²Mï¿½ï¿½
 	 */
 	public HelpList() {
 		super();

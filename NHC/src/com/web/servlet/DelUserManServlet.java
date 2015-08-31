@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.util.page;
 import com.web.www.ProcessUserMan;
+import util.page;
 public class DelUserManServlet extends HttpServlet {
 
 	/**

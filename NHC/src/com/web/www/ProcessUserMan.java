@@ -4,21 +4,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.web.database.Operation;
-import com.web.util.MD5;
+import util.MD5;
 
 public class ProcessUserMan {
 
-//	¼Æ¾Ú®w¾Þ§@¹ï¶H
+//	ï¿½Æ¾Ú®wï¿½Þ§@ï¿½ï¿½H
 	private Operation op;
-	//SQL»y¥y
+	//SQLï¿½yï¿½y
 	private String sql; 
-//	ªð¦^ª¬ºA
+//	ï¿½ï¿½^ï¿½ï¿½ï¿½A
 	private boolean status;
-//	°O¿ý¶°¹ï¶H
+//	ï¿½Oï¿½ï¿½ï¿½H
 	private ResultSet rs;
-//	ªð¦^°T®§
+//	ï¿½ï¿½^ï¿½Tï¿½ï¿½
 	private String msg;
-	//·|­û¹ï¶H
+	//ï¿½|ï¿½ï¿½ï¿½H
 	private Userman userman;
 	
 	
@@ -84,7 +84,7 @@ public class ProcessUserMan {
 				return true;
 			}
 			else {
-				msg="±z¿é¤Jªºµn¿ý¦W¤£¹ï¡A½ÐÀË¬d«á¦A¿é¤J"; 
+				msg="ï¿½zï¿½ï¿½Jï¿½ï¿½ï¿½nï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Ë¬dï¿½ï¿½Aï¿½ï¿½J"; 
 				return false;
 			}
 		}
@@ -100,7 +100,7 @@ public class ProcessUserMan {
 	}
 	
 	/**
-	 * ²K¥[·|­û
+	 * ï¿½Kï¿½[ï¿½|ï¿½ï¿½
 	 *
 	 */
 	public void addUserMan()
@@ -126,7 +126,7 @@ public class ProcessUserMan {
 			}
 			else
 			{
-				msg=userman.getUserManLoginName()+"¤w¸g¦s¦b,´«­Ó¦W¦r¸Õ¸Õ!";
+				msg=userman.getUserManLoginName()+"ï¿½wï¿½gï¿½sï¿½b,ï¿½ï¿½ï¿½Ó¦Wï¿½rï¿½Õ¸ï¿½!";
 				rs.close();
 			}
 		}
@@ -141,7 +141,7 @@ public class ProcessUserMan {
 		}
 	
 	/**
-	 * ­×§ï·|­û°T®§
+	 * ï¿½×§ï¿½|ï¿½ï¿½Tï¿½ï¿½
 	 *
 	 */
 	public void updateUserMan()
@@ -156,7 +156,7 @@ public class ProcessUserMan {
 			"' where user_man_id="+userman.getUserManId();
 			
 			op.update(sql);
-			System.out.println("­×§ï·|­û°T®§:sql:"+sql);
+			System.out.println("ï¿½×§ï¿½|ï¿½ï¿½Tï¿½ï¿½:sql:"+sql);
 			status=true;
 		}
 		catch(Exception e)
@@ -172,7 +172,7 @@ public class ProcessUserMan {
 	}
 	
 	/**
-	 * ®Ú¾ÚID§R°£·|­û°T®§
+	 * ï¿½Ú¾ï¿½IDï¿½Rï¿½ï¿½ï¿½|ï¿½ï¿½Tï¿½ï¿½
 	 * @param id
 	 */
 	public void delUserMan(String[] id)
@@ -200,7 +200,7 @@ public class ProcessUserMan {
 	}
 	
 	/**
-	 * ¸T¤îµn¿ý
+	 * ï¿½Tï¿½ï¿½nï¿½ï¿½
 	 *
 	 */
 	public void noLogin(String id)
@@ -241,7 +241,7 @@ public class ProcessUserMan {
 		}
 	}
 	/**
-	 * Àò±o¤@±ø·|­û°O¿ý
+	 * ï¿½ï¿½oï¿½@ï¿½ï¿½|ï¿½ï¿½Oï¿½ï¿½
 	 *
 	 */
 	
@@ -252,7 +252,7 @@ public class ProcessUserMan {
 			op=new Operation();
 			sql="select * from user_man where user_man_id="+id;
 			//System.out.println("sql:"+sql);
-			System.out.println("·|­û°O¿ý:sql:"+sql);
+			System.out.println("ï¿½|ï¿½ï¿½Oï¿½ï¿½:sql:"+sql);
 			rs=op.query(sql);
 			if(rs.next())
 			{
@@ -310,7 +310,7 @@ public class ProcessUserMan {
 	}
 	
 	/**
-	 * ÀË¬dµn¿ý
+	 * ï¿½Ë¬dï¿½nï¿½ï¿½
 	 */
 	public void checkLogin()
 	{
@@ -330,16 +330,16 @@ public class ProcessUserMan {
 				   	userman.setUserManId(rs.getString("user_man_id"));
 					userman.setUserManLastLogin(rs.getString("user_man_lastlogin"));
 					userman.setUserManLogintimes(rs.getString("user_man_logintimes"));
-//					§ó·sµn¿ý®É¶¡¡Aµn¿ý¦¸¼Æ
+//					ï¿½ï¿½sï¿½nï¿½ï¿½É¶ï¿½ï¿½Aï¿½nï¿½ï¿½ï¿½
 					   sql = "UPDATE user_man SET user_man_lastlogin=now(),user_man_logintimes=user_man_logintimes+1 WHERE user_man_id="+userman.getUserManId();
 					   op.update(sql);
 					status=true;
 				}
 			   else {
 				  
-				   //¥Î¤á±K½X¿ù»~
+				   //ï¿½Î¤ï¿½Kï¿½Xï¿½ï¿½~
 				   status = false;
-				   msg = userman.getUserManLoginName() + "ªº±K½X¿ù»~©ÎªÌ±z¤£¤¹³\µn¿ý¡A½Ð­«·sµn¿ý¡T";
+				   msg = userman.getUserManLoginName() + "";
 				   System.out.println(msg);
 			   }
 
@@ -357,7 +357,7 @@ public class ProcessUserMan {
 	}
 	
 	  /**
-     * ­×§ï±K½X
+     * ï¿½×§ï¿½Kï¿½X
      *
      */
     	public void modPassword(String id,String oldPassword,String newPassword)
@@ -380,7 +380,7 @@ public class ProcessUserMan {
 				}
 				else
 				{
-					msg = "±z¿é¤JªºÂÂ±K½X¤£¥¿½T,½Ð­«·s¿é¤J!";
+					msg = "ï¿½zï¿½ï¿½Jï¿½ï¿½ï¿½Â±Kï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½T,ï¿½Ð­ï¿½ï¿½sï¿½ï¿½J!";
 					status = false;
 				}
 		}
@@ -394,7 +394,7 @@ public class ProcessUserMan {
 		}
     	}
     	  /**
-         * ­×§ï±K½X
+         * ï¿½×§ï¿½Kï¿½X
          *
          */
     	public void reSetPassword(String password,String email,String loginname){
@@ -422,7 +422,7 @@ public class ProcessUserMan {
 
     
  /**
-  * ¼f®Ö
+  * ï¿½fï¿½ï¿½
   *
   */
     public void check(String userid)

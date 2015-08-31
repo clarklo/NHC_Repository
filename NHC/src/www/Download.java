@@ -1,9 +1,9 @@
 package www;
 
 /**
- * <p>Title: ¾ã¯¸¨t²Î1.0</p>
+ * <p>Title: ï¿½ã¯¸ï¿½tï¿½ï¿½1.0</p>
  *
- * <p>Description: ÀÉ®×JavaBean</p>
+ * <p>Description: ï¿½É®ï¿½JavaBean</p>
  *
  * <p>Copyright: Copyright (c) 2013</p>
  *
@@ -11,54 +11,54 @@ package www;
  *
  * @version 1.0
  */
-import com.web.util.GetDate;
+import util.GetDate;
 
 public class Download {
-	//ÀÉ®×½s¸¹
+	//ï¿½É®×½sï¿½ï¿½
 	private String id;
-	//Ãþ§O½s¸¹
+	//ï¿½ï¿½ï¿½Oï¿½sï¿½ï¿½
 	private int cid;
-	//ÀÉ®×¦WºÙ
+	//ï¿½É®×¦Wï¿½ï¿½
 	private String title;
-	//¶}µo°Ó
+	//ï¿½}ï¿½oï¿½ï¿½
 	private String author;
-	//¨Ó·½
+	//ï¿½Ó·ï¿½
 	private String from;
-	//ÃöÁä¦r
+	//ï¿½ï¿½ï¿½ï¿½r
 	private String keyword;
-	//¤º®eºK­n
+	//ï¿½ï¿½ï¿½eï¿½Kï¿½n
 	private String summary;
-	//Àç¹BÀô¹Ò
+	//ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½
 	private String platform;
-	//»y¨¥
+	//ï¿½yï¿½ï¿½
 	private String language;
-	//±ÂÅv¼Ò¦¡
+	//ï¿½ï¿½ï¿½vï¿½Ò¦ï¿½
 	private String grant;
-	//¤U¸ü¦ì§}
+	//ï¿½Uï¿½ï¿½ï¿½}
 	private String filename;
-	//ÀÉ®×¤j¤p
+	//ï¿½É®×¤jï¿½p
 	private int size;
-	//¤º®eÂ²¤¶
+	//ï¿½ï¿½ï¿½eÂ²ï¿½ï¿½
 	private String content;
-	//­º­¶¹Ï¤ù
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ï¤ï¿½
 	private String indexImage;
-	//©T³»
+	//ï¿½Tï¿½ï¿½
 	private int top;
-	//ºu°Ê
+	//ï¿½uï¿½ï¿½
 	private int scroll;
-	//±ÀÂË
+	//ï¿½ï¿½ï¿½ï¿½
 	private int commend;
-	//±ÀÂËµ¥¯Å
+	//ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½
 	private int level;
-	//HTMLÀÉ®×
+	//HTMLï¿½É®ï¿½
 	private String html;
-	//µo¥¬®É¶¡
+	//ï¿½oï¿½ï¿½ï¿½É¶ï¿½
 	private String time;
-	//µo¥¬¤H
+	//ï¿½oï¿½ï¿½ï¿½H
 	private String username;
-	//¤U¸ü¦¸¼Æ
+	//ï¿½Uï¿½ï¿½ï¿½
 	private int count;
-	//¤¹³\µû½×§_
+	//ï¿½ï¿½ï¿½\ï¿½ï¿½×§_
 	private int comment;
 
     public Download() {

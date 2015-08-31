@@ -1,9 +1,9 @@
 package com.web.www;
 
 /**
- * <p>Title: ¾ã¯¸¨t²Î1.0</p>
+ * <p>Title: ï¿½ã¯¸ï¿½tï¿½ï¿½1.0</p>
  *
- * <p>Description: ºÞ²z­ûÃþ</p>
+ * <p>Description: ï¿½Þ²zï¿½ï¿½ï¿½ï¿½</p>
  *
  * <p>Copyright: Copyright (c) 2013</p>
  *
@@ -11,25 +11,25 @@ package com.web.www;
  *
  * @version 1.0
  */
-import com.web.util.GetDate;
-import com.web.util.MD5;
+import util.GetDate;
+import util.MD5;
 
 public class Admin {
-	//ºÞ²z­û½s¸¹
+	//ï¿½Þ²zï¿½ï¿½sï¿½ï¿½
 	private int id;
-	//ºÞ²z­û¥Î¤á¦W,§Y¥N¸¹
+	//ï¿½Þ²zï¿½ï¿½Î¤ï¿½W,ï¿½Yï¿½Nï¿½ï¿½
 	private String username;
-	//ºÞ²z­û©m¦W
+	//ï¿½Þ²zï¿½ï¿½mï¿½W
 	private String name;
-	//ºÞ²z­û±K½X
+	//ï¿½Þ²zï¿½ï¿½Kï¿½X
 	private String password;
-	//ºÞ²z­ûÅv­­
+	//ï¿½Þ²zï¿½ï¿½ï¿½vï¿½ï¿½
 	private String permission;
-	//¤W¦¸µn¿ý®É¶¡
+	//ï¿½Wï¿½ï¿½ï¿½nï¿½ï¿½É¶ï¿½
 	private String lastLogin;
-	//¬O§_¨t²ÎºÞ²z­û
+	//ï¿½Oï¿½_ï¿½tï¿½ÎºÞ²zï¿½ï¿½
 	private int isAdmin;
-	//µn¿ý¦¸¼Æ
+	//ï¿½nï¿½ï¿½ï¿½
 	private int logins;
 
 	public Admin() {

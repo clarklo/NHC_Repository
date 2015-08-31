@@ -1,9 +1,9 @@
 package www;
 
 /**
- * <p>Title: ¾ã¯¸¨t²Î1.0</p>
+ * <p>Title: ï¿½ã¯¸ï¿½tï¿½ï¿½1.0</p>
  *
- * <p>Description: ³B²zÀÉ®×JavaBean</p>
+ * <p>Description: ï¿½Bï¿½zï¿½É®ï¿½JavaBean</p>
  *
  * <p>Copyright: Copyright (c) 2013</p>
  *
@@ -20,22 +20,22 @@ import java.sql.SQLException;
 import java.util.Calendar;
 
 import com.web.database.Operation;
-import com.web.util.ReplaceAll;
+import util.ReplaceAll;
 
 public class ProcessDownload {
-	//¼Æ¾Ú®w¾Þ§@¹ï¶H
+	//ï¿½Æ¾Ú®wï¿½Þ§@ï¿½ï¿½H
 	private Operation op;
-	//SQL»y¥y
+	//SQLï¿½yï¿½y
 	private String sql;
-	//°O¿ý¶°¹ï¶H
+	//ï¿½Oï¿½ï¿½ï¿½H
 	private ResultSet rs;
-	//ÀÉ®×¹ï¶H
+	//ï¿½É®×¹ï¿½H
 	private Download download;
-	//·í«e¸ô®|
+	//ï¿½ï¿½eï¿½ï¿½ï¿½|
 	private String currPath;
-	//ªð¦^°T®§
+	//ï¿½ï¿½^ï¿½Tï¿½ï¿½
 	private String msg;
-	//ªð¦^ª¬ºA
+	//ï¿½ï¿½^ï¿½ï¿½ï¿½A
 	private boolean status;
 
     public ProcessDownload() {
@@ -80,7 +80,7 @@ public class ProcessDownload {
     }
 
 	/*
-	 *®Ú¾Ú¼ÒªO¥Í¦¨ÀRºA­¶­±
+	 *ï¿½Ú¾Ú¼ÒªOï¿½Í¦ï¿½ï¿½Rï¿½Aï¿½ï¿½ï¿½ï¿½
 	 */
 	private void genHtml()throws Exception, IOException{
 		try{
@@ -88,7 +88,7 @@ public class ProcessDownload {
 			ResultSet rs = null;
 			String sql = "";
 
-			//Åª¤J­º­¶¼ÒªO
+			//Åªï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ÒªO
 			String file = currPath + "template" + java.io.File.separator +
 				"file.html";
 			FileInputStream in = new FileInputStream(file);
@@ -98,7 +98,7 @@ public class ProcessDownload {
 			in.close();
 			String index = new String(template);
 
-			//¥Í¦¨¿ï³æ
+			//ï¿½Í¦ï¿½ï¿½ï¿½ï¿½
 			String menu = "";
 			sql = "SELECT * FROM cms_class WHERE cms_class_fatid=0 ORDER BY cms_class_orderid ASC";
 			rs = op.query(sql);
@@ -118,7 +118,7 @@ public class ProcessDownload {
 				}
 			}
 
-			//ºô¯¸°t¸m
+			//ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½m
 			sql = "SELECT * FROM cms_config";
 			rs = op.query(sql);
 			String sitename = "";
@@ -137,7 +137,7 @@ public class ProcessDownload {
 			index = ReplaceAll.replace(index, "<$BANNER$>", sitebanner);
 			index = ReplaceAll.replace(index, "<$COPYRIGHT$>", copyright);
 
-			//¥Í¦¨·í«e¸ô®|
+			//ï¿½Í¦ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½|
 			sql = "SELECT * FROM cms_class WHERE cms_class_id="+download.getCid();
 			rs = op.query(sql);
 			String path = "";
@@ -167,7 +167,7 @@ public class ProcessDownload {
 				}
 			}
 
-			//´À´«¼ÐÅÒ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			index = ReplaceAll.replace(index, "<$MENU$>", menu);
 			index = ReplaceAll.replace(index, "<$CURRENTPATH$>", path + " >> " +download.getTitle());
 			index = ReplaceAll.replace(index, "<$SIZE$>", String.valueOf(download.getSize()));
@@ -181,8 +181,8 @@ public class ProcessDownload {
 			index = ReplaceAll.replace(index, "<$USERNAME$>", download.getUsername());
 			if(download.getComment()==1){
                 index = ReplaceAll.replace(index, "<$COMMENT$>",
-                    "¡i<a href='../../../../comment.jsp?id=" + download.getId() +
-                                           "'>µû½×</a>¡j");
+                    "ï¿½i<a href='../../../../comment.jsp?id=" + download.getId() +
+                                           "'>ï¿½ï¿½ï¿½</a>ï¿½j");
             }
 			else{
 				index = ReplaceAll.replace(index, "<$COMMENT$>", "");
@@ -190,7 +190,7 @@ public class ProcessDownload {
 
 			index = ReplaceAll.replace(index, "<$COUNT$>", "<iframe name='count' frameborder=0 width=30 height=20 scrolling=no src='../../../../count.jsp?id="+download.getId()+"&type=2'></iframe>");
 			index = ReplaceAll.replace(index, "<$KEYWORDS$>", download.getKeyword());
-			index = ReplaceAll.replace(index, "<$ADDRESS$>", "<a href='../../../../upload/files/"+download.getFilename()+"'>¥»¦a¤U¸ü</a>");
+			index = ReplaceAll.replace(index, "<$ADDRESS$>", "<a href='../../../../upload/files/"+download.getFilename()+"'>ï¿½ï¿½ï¿½aï¿½Uï¿½ï¿½</a>");
 			if(download.getIndexImage() != ""){
 				index = ReplaceAll.replace(index, "<$IMAGE$>", "<img src='../../../../upload/images/"+download.getIndexImage()+"' width=175 height=175>");
 			}
@@ -199,15 +199,15 @@ public class ProcessDownload {
 			}
 			index = ReplaceAll.replace(index, "<$CONTENT$>", download.getContent());
 
-			//¥Í¦¨article.htmlÀÉ®×
+			//ï¿½Í¦ï¿½article.htmlï¿½É®ï¿½
 			Calendar calendar = Calendar.getInstance();
 			String p = calendar.get(Calendar.YEAR) + File.separator + (calendar.get(Calendar.MONTH)+1) + File.separator + calendar.get(Calendar.DAY_OF_MONTH);
-			//¥Í¦¨¥Ø¿ý
+			//ï¿½Í¦ï¿½ï¿½Ø¿ï¿½
 			File f1 = new File(currPath + "html" + File.separator + p);
 			if(!f1.exists()){
 				f1.mkdirs();
 			}
-			//¥Í¦¨htmlÀÉ®×
+			//ï¿½Í¦ï¿½htmlï¿½É®ï¿½
 			FileOutputStream fos = new FileOutputStream(currPath + "html" + File.separator + p + File.separator + download.getId() + ".html");
 			byte contentByte[] = index.getBytes();
 			fos.write(contentByte);
@@ -224,7 +224,7 @@ public class ProcessDownload {
 	}
 
     /**
-	 *²K»\¤å¥ó
+	 *ï¿½Kï¿½\ï¿½ï¿½ï¿½
 	 */
 	public void add(String imgfile) throws ClassNotFoundException, SQLException{
 		try{
@@ -250,7 +250,7 @@ public class ProcessDownload {
 				op.update(sql);
 			}
 
-			//³B²z¤W¶Çªº¹Ï¤ù
+			//ï¿½Bï¿½zï¿½Wï¿½Çªï¿½ï¿½Ï¤ï¿½
 			String file[] = null;
 			if(imgfile != null && imgfile != ""){
 				file = imgfile.split(":");
@@ -258,7 +258,7 @@ public class ProcessDownload {
 				Picture picture = new Picture();
 				ProcessPicture processPicture = new ProcessPicture();
 				picture.setCid(download.getId());
-				//ªí¥Ü°T®§¹Ï¤ù
+				//ï¿½ï¿½Ü°Tï¿½ï¿½ï¿½Ï¤ï¿½
 				picture.setType(1);
 
 				for(int i=0;i<file.length;i++){
@@ -284,7 +284,7 @@ public class ProcessDownload {
 	}
 
 	/*
-	 *®Ú¾Ú¼ÒªO­×§ïÀRºA­¶­±
+	 *ï¿½Ú¾Ú¼ÒªOï¿½×§ï¿½ï¿½Rï¿½Aï¿½ï¿½ï¿½ï¿½
 	 */
 	private void modHtml()throws Exception, IOException{
 		try{
@@ -292,7 +292,7 @@ public class ProcessDownload {
 			ResultSet rs = null;
 			String sql = "";
 
-			//§R°£¥H«eªºhtml
+			//ï¿½Rï¿½ï¿½ï¿½Hï¿½eï¿½ï¿½html
 			sql = "SELECT * FROM cms_infodata WHERE cms_infodata_id='"+download.getId()+"'";
 			rs = op.query(sql);
 			if(rs.next()){
@@ -303,7 +303,7 @@ public class ProcessDownload {
 				}
 			}
 
-			//Åª¤J­º­¶¼ÒªO
+			//Åªï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ÒªO
 			String file = currPath + "template" + java.io.File.separator +
 				"file.html";
 			FileInputStream in = new FileInputStream(file);
@@ -314,7 +314,7 @@ public class ProcessDownload {
 			
 			String index = new String(template);
 
-			//¥Í¦¨¿ï³æ
+			//ï¿½Í¦ï¿½ï¿½ï¿½ï¿½
 			String menu = "";
 			sql = "SELECT * FROM cms_class WHERE cms_class_id=0 ORDER BY cms_class_orderid ASC";
 			rs = op.query(sql);
@@ -334,7 +334,7 @@ public class ProcessDownload {
 				}
 			}
 
-			//ºô¯¸°t¸m
+			//ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½m
 			sql = "SELECT * FROM cms_config";
 			rs = op.query(sql);
 			String sitename = "";
@@ -354,7 +354,7 @@ public class ProcessDownload {
 			index = ReplaceAll.replace(index, "<$BANNER$>", sitebanner);
 			index = ReplaceAll.replace(index, "<$COPYRIGHT$>", copyright);
 	
-			//¥Í¦¨·í«e¸ô®|
+			//ï¿½Í¦ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½|
 			sql = "SELECT * FROM cms_class WHERE cms_class_id="+download.getCid();
 			rs = op.query(sql);
 			String path = "";
@@ -386,7 +386,7 @@ public class ProcessDownload {
 			}
 
 		
-			//´À´«¼ÐÅÒ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			index = ReplaceAll.replace(index, "<$MENU$>", menu);
 			index = ReplaceAll.replace(index, "<$CURRENTPATH$>", path + " >> " +download.getTitle());
 			index = ReplaceAll.replace(index, "<$SIZE$>", String.valueOf(download.getSize()));
@@ -401,15 +401,15 @@ public class ProcessDownload {
 			
 			if(download.getComment()==1){
                 index = ReplaceAll.replace(index, "<$COMMENT$>",
-                    "¡i<a href='../../../../comment.jsp?id=" + download.getId() +
-                                           "'>µû½×</a>¡j");
+                    "ï¿½i<a href='../../../../comment.jsp?id=" + download.getId() +
+                                           "'>ï¿½ï¿½ï¿½</a>ï¿½j");
             }
 			else{
 				index = ReplaceAll.replace(index, "<$COMMENT$>", "");
 			}
 			index = ReplaceAll.replace(index, "<$COUNT$>", "<iframe name='count' frameborder=0 width=30 height=20 scrolling=no src='../../../../count.jsp?id="+download.getId()+"&type=2'></iframe>");
 			index = ReplaceAll.replace(index, "<$KEYWORDS$>", download.getKeyword());
-			index = ReplaceAll.replace(index, "<$ADDRESS$>", "<a href='../../../../upload/files/"+download.getFilename()+"'>¥»¦a¤U¸ü</a>");
+			index = ReplaceAll.replace(index, "<$ADDRESS$>", "<a href='../../../../upload/files/"+download.getFilename()+"'>ï¿½ï¿½ï¿½aï¿½Uï¿½ï¿½</a>");
 			System.out.println("download.getIndexImage()"+download.getIndexImage());
 			System.out.println("download.getIndexImage()"+download.getIndexImage().length());
 			if(!download.getIndexImage().trim().equals("")){
@@ -421,10 +421,10 @@ public class ProcessDownload {
 			index = ReplaceAll.replace(index, "<$CONTENT$>", download.getContent());
 
 			
-			//¥Í¦¨article.htmlÀÉ®×
+			//ï¿½Í¦ï¿½article.htmlï¿½É®ï¿½
 			Calendar calendar = Calendar.getInstance();
 			String p = calendar.get(Calendar.YEAR) + File.separator + (calendar.get(Calendar.MONTH)+1) + File.separator + calendar.get(Calendar.DAY_OF_MONTH);
-			//¥Í¦¨¥Ø¿ý
+			//ï¿½Í¦ï¿½ï¿½Ø¿ï¿½
 			
 		
 			File f1 = new File(currPath + "html" + File.separator + p);
@@ -435,7 +435,7 @@ public class ProcessDownload {
 			
 			System.out.println(currPath + "html" + File.separator + p + File.separator + download.getId() + ".html");
 			
-			//¥Í¦¨htmlÀÉ®×
+			//ï¿½Í¦ï¿½htmlï¿½É®ï¿½
 			FileOutputStream fos = new FileOutputStream(currPath + "html" + File.separator + p + File.separator + download.getId() + ".html");
 			
 			byte contentByte[] = index.getBytes();
@@ -455,7 +455,7 @@ public class ProcessDownload {
 		}
 	}
 	/**
-	 * ­×§ïÀÉ®×
+	 * ï¿½×§ï¿½ï¿½É®ï¿½
 	 */
 	public void mod(String imgfile) throws ClassNotFoundException, SQLException{
 		try{
@@ -485,7 +485,7 @@ public class ProcessDownload {
 				sql = "INSERT INTO cms_topinfo(cms_topinfo_info,cms_topinfo_class) VALUES ('" + download.getId() + "',"+download.getCid()+")";
 				op.update(sql);
 			}
-			//³B²z¤W¶Çªº¹Ï¤ù
+			//ï¿½Bï¿½zï¿½Wï¿½Çªï¿½ï¿½Ï¤ï¿½
 			String file[] = null;
 			if(imgfile != null && imgfile != ""){
 				file = imgfile.split(":");
@@ -493,7 +493,7 @@ public class ProcessDownload {
 				Picture picture = new Picture();
 				ProcessPicture processPicture = new ProcessPicture();
 				picture.setCid(download.getId());
-				//ªí¥Ü°T®§¹Ï¤ù
+				//ï¿½ï¿½Ü°Tï¿½ï¿½ï¿½Ï¤ï¿½
 				picture.setType(1);
 
 				for(int i=0;i<file.length;i++){
@@ -519,13 +519,13 @@ public class ProcessDownload {
 	}
 
 	/**
-	 * §R°£ÀÉ®×
+	 * ï¿½Rï¿½ï¿½ï¿½É®ï¿½
 	 */
 	public void del(String path, String id) throws ClassNotFoundException, SQLException{
 		try{
 			op = new Operation();
 
-			//§R°£html
+			//ï¿½Rï¿½ï¿½html
 			sql = "SELECT * FROM cms_infodata WHERE cms_infodata_id='"+id+"'";
 			rs = op.query(sql);
 			if(rs.next()){
@@ -536,7 +536,7 @@ public class ProcessDownload {
 				}
 			}
 
-			//§R°£ÀÉ®×
+			//ï¿½Rï¿½ï¿½ï¿½É®ï¿½
 			sql = "SELECT * FROM cms_infodata2 WHERE cms_infodata2_id='" +id+ "'";
 			rs = op.query(sql);
 			if(rs.next()){
@@ -560,11 +560,11 @@ public class ProcessDownload {
 			sql = "DELETE FROM cms_rolls WHERE cms_rolls_info='" +id+ "'";
 			op.update(sql);
 
-			//§R°£µû½×°T®§
+			//ï¿½Rï¿½ï¿½ï¿½ï¿½×°Tï¿½ï¿½
 			sql = "DELETE FROM cms_comment WHERE cms_comment_info='" +id+ "'";
 			op.update(sql);
 
-			//§R°£ÀÉ®×¹Ï¤ù
+			//ï¿½Rï¿½ï¿½ï¿½É®×¹Ï¤ï¿½
 			ProcessPicture processPicture = new ProcessPicture();
 			processPicture.del(path, id, 1);
 

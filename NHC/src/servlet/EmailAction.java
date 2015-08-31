@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.email.Email;
-import com.web.util.DealString;
 import com.web.www.ProcessUserMan;
+import email.Email;
+import util.DealString;
 
 
 public class EmailAction extends HttpServlet {
@@ -34,11 +34,11 @@ public class EmailAction extends HttpServlet {
 			if(pum.isStatus())
 			{
 			
-				//Àò¨ú¶l¥óªº¼ÐÃD©M¤º®e¡Aµo°e¶l¥ó
+				//ï¿½ï¿½ï¿½lï¿½óªº¼ï¿½ï¿½Dï¿½Mï¿½ï¿½ï¿½eï¿½Aï¿½oï¿½eï¿½lï¿½ï¿½
 					
-				String title="°ª¶¯ºaÁ`°ê»ÚÂåÀø¤¤¤ß·|­û±K½X§ä¦^¡]¦Û°Êµo°e¡A½Ð¤Å¦^½Æ¡^";
-				String content="<p>"+loginname+"±z¦n¡J</p><p>·PÁÂ±zµù¥U¦¨¬°<a href=\"http://www.xinyuky.com\" target=\"_blank\">°ª¶¯ºaÁ`°ê»ÚÂåÀø¤¤¤ß</a>·|­û¡A" +
-						"±zªº·s±K½X¬O"+password+"¡AÂIÀ»<a href=\"http://www.vghks.gov.tw/icmsite/login.jsp\" target=\"_blank\">³o¸Ì</a>­«·sµn¤J </p>";
+				String title="ï¿½ï¿½ï¿½ï¿½ï¿½aï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß·|ï¿½ï¿½Kï¿½Xï¿½ï¿½^ï¿½]ï¿½Û°Êµoï¿½eï¿½Aï¿½Ð¤Å¦^ï¿½Æ¡^";
+				String content="<p>"+loginname+"ï¿½zï¿½nï¿½J</p><p>ï¿½Pï¿½Â±zï¿½ï¿½Uï¿½ï¿½ï¿½ï¿½<a href=\"http://www.xinyuky.com\" target=\"_blank\">ï¿½ï¿½ï¿½ï¿½ï¿½aï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a>ï¿½|ï¿½ï¿½A" +
+						"ï¿½zï¿½ï¿½ï¿½sï¿½Kï¿½Xï¿½O"+password+"ï¿½Aï¿½Iï¿½ï¿½<a href=\"http://www.vghks.gov.tw/icmsite/login.jsp\" target=\"_blank\">ï¿½oï¿½ï¿½</a>ï¿½ï¿½ï¿½sï¿½nï¿½J </p>";
 				String toaddr=email2;
 				
 				String p=getServletConfig().getInitParameter("Frompassword");
@@ -61,7 +61,7 @@ public class EmailAction extends HttpServlet {
 				
 		        	out.write("\r\n");
 				    out.write("\t\t<script language=\"javascript\"> \r\n");
-				    out.write("  \t\t  alert(\"±z¿é¤Jªº°T®§¦³»~¡A½Ð­«·s¿é¤J¡T\");\r\n");
+				    out.write("  \t\t  alert(\"ï¿½zï¿½ï¿½Jï¿½ï¿½ï¿½Tï¿½ï¿½ï¿½ï¿½ï¿½~ï¿½Aï¿½Ð­ï¿½ï¿½sï¿½ï¿½Jï¿½T\");\r\n");
 				    out.write("  \t\t  window.history.go(-1);\r\n");
 				    out.write("  \t\t\t</script>\r\n");
 				    out.write("\t\t\r\n");

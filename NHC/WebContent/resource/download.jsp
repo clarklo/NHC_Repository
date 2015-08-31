@@ -1,3 +1,5 @@
+<%@page import="www.DocDown"%>
+<%@page import="www.ProcessDocDown"%>
 <%@ page pageEncoding="utf-8" contentType="text/html; charset=utf-8" %>
 <%@ page import ="com.jspsmart.upload.SmartUpload"%>
 <%@ page import="com.web.www.*" %>
@@ -14,8 +16,8 @@
 		                  {   
                               if("".equals(loginname)||loginname==null||loginname.length()<0)
                                  out.println("<script language=javascript> alert('您還未登入，請先登入!'); location.href='../user/login.jsp';</script>");
-		                      else if(!pum.ischeck(loginname,password))
-		                         out.println("<script language=javascript> alert('您還未經過審核，請耐心等候!'); history.go(-1);</script>");
+		                   //   else if(!pum.ischeck(loginname,password))
+		                   //      out.println("<script language=javascript> alert('您還未經過審核，請耐心等候!'); history.go(-1);</script>");
 		                      else
 		                      {
 		                         try

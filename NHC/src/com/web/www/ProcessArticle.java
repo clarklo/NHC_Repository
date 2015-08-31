@@ -1,7 +1,7 @@
 package com.web.www;
 
 /**
- * <p>Title: ¾ã¯¸¨t²Î1.0</p>
+ * <p>Title: ï¿½ã¯¸ï¿½tï¿½ï¿½1.0</p>
  *
  * <p>Description: </p>
  *
@@ -22,22 +22,24 @@ import java.util.Calendar;
 import java.util.List;
 
 import com.web.database.Operation;
-import com.web.util.ReplaceAll;
+import util.ReplaceAll;
+import www.Picture;
+import www.ProcessPicture;
 
 public class ProcessArticle {
-	//¼Æ¾Ú®w¾Þ§@¹ï¶H
+	//ï¿½Æ¾Ú®wï¿½Þ§@ï¿½ï¿½H
 	private Operation op;
-	//SQL»y¥y
+	//SQLï¿½yï¿½y
 	private String sql;
-	//°O¿ý¶°¹ï¶H
+	//ï¿½Oï¿½ï¿½ï¿½H
 	private ResultSet rs;
-	//¤å³¹¹ï¶H
+	//ï¿½å³¹ï¿½ï¿½H
 	private Article article;
-	//·í«e¸ô®|
+	//ï¿½ï¿½eï¿½ï¿½ï¿½|
 	private String currPath;
-	//ªð¦^°T®§
+	//ï¿½ï¿½^ï¿½Tï¿½ï¿½
 	private String msg;
-	//ªð¦^ª¬ºA
+	//ï¿½ï¿½^ï¿½ï¿½ï¿½A
 	private boolean status;
 
     public ProcessArticle() {
@@ -82,11 +84,11 @@ public class ProcessArticle {
     }
 
     /**
-	 *²K»\¤å³¹
+	 *ï¿½Kï¿½\ï¿½å³¹
 	 */
 	public void add(String imgfile) throws ClassNotFoundException, SQLException{
 		try{
-			//²£¥ÍhmtlÀÉ®×
+			//ï¿½ï¿½ï¿½ï¿½hmtlï¿½É®ï¿½
 			//System.out.println("333333333333333333");
 			
 
@@ -115,7 +117,7 @@ public class ProcessArticle {
 			}
 
 			
-			//³B²z¤W¶Çªº¹Ï¤ù
+			//ï¿½Bï¿½zï¿½Wï¿½Çªï¿½ï¿½Ï¤ï¿½
 			String file[] = null;
 			if(imgfile != null && !"".equals(imgfile)){
 				file = imgfile.split(":");
@@ -123,7 +125,7 @@ public class ProcessArticle {
 				Picture picture = new Picture();
 				ProcessPicture processPicture = new ProcessPicture();
 				picture.setCid(article.getId());
-				//ªí¥Ü°T®§¹Ï¤ù
+				//ï¿½ï¿½Ü°Tï¿½ï¿½ï¿½Ï¤ï¿½
 				picture.setType(1);
 
 				for(int i=0;i<file.length;i++){
@@ -153,7 +155,7 @@ public class ProcessArticle {
 	}
 
 	/*
-	 *®Ú¾Ú¼ÒªO¥Í¦¨ÀRºA­¶­±
+	 *ï¿½Ú¾Ú¼ÒªOï¿½Í¦ï¿½ï¿½Rï¿½Aï¿½ï¿½ï¿½ï¿½
 	 */
 	private void genHtml()throws Exception, IOException{
 		try{
@@ -161,7 +163,7 @@ public class ProcessArticle {
             ResultSet rs = null;
             String sql = "";
 
-            //Åª¤J­º­¶¼ÒªO
+            //Åªï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ÒªO
             String file = currPath + "template" + java.io.File.separator +
                 "article.html";
             FileInputStream in = new FileInputStream(file);
@@ -171,7 +173,7 @@ public class ProcessArticle {
             in.close();
             String index = new String(template);
 
-			//¥Í¦¨¿ï³æ
+			//ï¿½Í¦ï¿½ï¿½ï¿½ï¿½
 			String menu = "";
 			sql = "SELECT * FROM cms_class WHERE cms_class_fatid=0 ORDER BY cms_class_orderid ASC";
 			System.out.println(sql);
@@ -193,7 +195,7 @@ public class ProcessArticle {
 				}
 			}
 
-			//ºô¯¸°t¸m
+			//ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½m
 			sql = "SELECT * FROM cms_config";
 			rs = op.query(sql);
 			String sitename = "";
@@ -212,7 +214,7 @@ public class ProcessArticle {
 			index = ReplaceAll.replace(index, "<$BANNER$>", sitebanner);
 			index = ReplaceAll.replace(index, "<$COPYRIGHT$>", copyright);
 
-			//¥Í¦¨·í«e¸ô®|
+			//ï¿½Í¦ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½|
 			sql = "SELECT * FROM cms_class WHERE cms_class_id="+article.getCid();
 			System.out.println(sql);
 			rs = op.query(sql);
@@ -243,7 +245,7 @@ public class ProcessArticle {
 				}
 			}
 
-			//´À´«¼ÐÅÒ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			index = ReplaceAll.replace(index, "<$MENU$>", menu);
 			index = ReplaceAll.replace(index, "<$CURRENTPATH$>", path + " >> " +article.getTitle());
 			index = ReplaceAll.replace(index, "<$TITLE$>", article.getTitle());
@@ -253,8 +255,8 @@ public class ProcessArticle {
 			index = ReplaceAll.replace(index, "<$USERNAME$>", article.getUsername());
 			if(article.getComment()==1){
                 index = ReplaceAll.replace(index, "<$COMMENT$>",
-                    "¡i<a href='../../../../comment.jsp?id=" + article.getId() +
-                                           "'>µû½×</a>¡j");
+                    "ï¿½i<a href='../../../../comment.jsp?id=" + article.getId() +
+                                           "'>ï¿½ï¿½ï¿½</a>ï¿½j");
             }
 			else{
 				index = ReplaceAll.replace(index, "<$COMMENT$>", "");
@@ -264,15 +266,15 @@ public class ProcessArticle {
 			index = ReplaceAll.replace(index, "<$KEYWORDS$>", article.getKeyword());
 			index = ReplaceAll.replace(index, "<$CONTENT$>", article.getContent());
 
-			//¥Í¦¨article.htmlÀÉ®×
+			//ï¿½Í¦ï¿½article.htmlï¿½É®ï¿½
 			Calendar calendar = Calendar.getInstance();
 			String p = calendar.get(Calendar.YEAR) + File.separator + (calendar.get(Calendar.MONTH)+1) + File.separator + calendar.get(Calendar.DAY_OF_MONTH);
-			//¥Í¦¨¥Ø¿ý
+			//ï¿½Í¦ï¿½ï¿½Ø¿ï¿½
 			File f1 = new File(currPath + "html" + File.separator + p);
 			if(!f1.exists()){
 				f1.mkdirs();
 			}
-			//¥Í¦¨htmlÀÉ®×
+			//ï¿½Í¦ï¿½htmlï¿½É®ï¿½
 			FileOutputStream fos = new FileOutputStream(currPath + "html" + File.separator + p + File.separator + article.getId() + ".html");
 			byte contentByte[] = index.getBytes();
 			fos.write(contentByte);
@@ -289,7 +291,7 @@ public class ProcessArticle {
 	}
 
 	/*
-	 *®Ú¾Ú¼ÒªO­×§ïÀRºA­¶­±
+	 *ï¿½Ú¾Ú¼ÒªOï¿½×§ï¿½ï¿½Rï¿½Aï¿½ï¿½ï¿½ï¿½
 	 */
 	private void modHtml()throws Exception, IOException{
 		try{
@@ -297,7 +299,7 @@ public class ProcessArticle {
 			ResultSet rs = null;
 			String sql = "";
 
-			//§R°£¥H«eªºhtml
+			//ï¿½Rï¿½ï¿½ï¿½Hï¿½eï¿½ï¿½html
 			sql = "SELECT * FROM cms_infodata WHERE cms_infodata_id='"+article.getId()+"'";
 			rs = op.query(sql);
 			if(rs.next()){
@@ -308,7 +310,7 @@ public class ProcessArticle {
 				}
 			}
 
-			//Åª¤J­º­¶¼ÒªO
+			//Åªï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½ÒªO
 			String file = currPath + "template" + java.io.File.separator +
 				"article.html";
 			FileInputStream in = new FileInputStream(file);
@@ -318,7 +320,7 @@ public class ProcessArticle {
 			in.close();
 			String index = new String(template);
 
-			//¥Í¦¨¿ï³æ
+			//ï¿½Í¦ï¿½ï¿½ï¿½ï¿½
 			String menu = "";
 			sql = "SELECT * FROM cms_class WHERE cms_class_fatid=0 ORDER BY cms_class_orderid ASC";
 			rs = op.query(sql);
@@ -338,7 +340,7 @@ public class ProcessArticle {
 				}
 			}
 
-			//ºô¯¸°t¸m
+			//ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½m
 			sql = "SELECT * FROM cms_config";
 			rs = op.query(sql);
 			String sitename = "";
@@ -358,7 +360,7 @@ public class ProcessArticle {
 			index = ReplaceAll.replace(index, "<$COPYRIGHT$>", copyright);
 
 
-			//¥Í¦¨·í«e¸ô®|
+			//ï¿½Í¦ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½|
 			sql = "SELECT * FROM cms_class WHERE cms_class_id="+article.getCid();
 			rs = op.query(sql);
 			String path = "";
@@ -391,7 +393,7 @@ public class ProcessArticle {
 				}
 			}
 
-			//´À´«¼ÐÅÒ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			index = ReplaceAll.replace(index, "<$MENU$>", menu);
 			index = ReplaceAll.replace(index, "<$CURRENTPATH$>", path + " >> " +article.getTitle());
 			index = ReplaceAll.replace(index, "<$TITLE$>", article.getTitle());
@@ -401,8 +403,8 @@ public class ProcessArticle {
 			index = ReplaceAll.replace(index, "<$USERNAME$>", article.getUsername());
 			if(article.getComment()==1){
                 index = ReplaceAll.replace(index, "<$COMMENT$>",
-                    "¡i<a href='../../../../comment.jsp?id=" + article.getId() +
-                                           "'>µû½×</a>¡j");
+                    "ï¿½i<a href='../../../../comment.jsp?id=" + article.getId() +
+                                           "'>ï¿½ï¿½ï¿½</a>ï¿½j");
             }
 			else{
 				index = ReplaceAll.replace(index, "<$COMMENT$>", "");
@@ -412,15 +414,15 @@ public class ProcessArticle {
 			index = ReplaceAll.replace(index, "<$KEYWORDS$>", article.getKeyword());
 			index = ReplaceAll.replace(index, "<$CONTENT$>", article.getContent());
 
-			//¥Í¦¨article.htmlÀÉ®×
+			//ï¿½Í¦ï¿½article.htmlï¿½É®ï¿½
 			Calendar calendar = Calendar.getInstance();
 			String p = calendar.get(Calendar.YEAR) + File.separator + (calendar.get(Calendar.MONTH)+1) + File.separator + calendar.get(Calendar.DAY_OF_MONTH);
-			//¥Í¦¨¥Ø¿ý
+			//ï¿½Í¦ï¿½ï¿½Ø¿ï¿½
 			File f1 = new File(currPath + "html" + File.separator + p);
 			if(!f1.exists()){
 				f1.mkdirs();
 			}
-			//¥Í¦¨htmlÀÉ®×
+			//ï¿½Í¦ï¿½htmlï¿½É®ï¿½
 			FileOutputStream fos = new FileOutputStream(currPath + "html" + File.separator + p + File.separator + article.getId() + ".html");
 			System.out.println("**********");
 			
@@ -450,7 +452,7 @@ public class ProcessArticle {
 	}
 
 	/**
-	 * ­×§ï¤å³¹
+	 * ï¿½×§ï¿½å³¹
 	 */
 	public void mod(String imgfile) throws ClassNotFoundException, SQLException{
 		try{
@@ -496,7 +498,7 @@ public class ProcessArticle {
 				System.out.println("H:sql:"+sql);
 				op.update(sql);
 			}
-			//³B²z¤W¶Çªº¹Ï¤ù
+			//ï¿½Bï¿½zï¿½Wï¿½Çªï¿½ï¿½Ï¤ï¿½
 			String file[] = null;
 
 			if(imgfile != null &&!"".equals(imgfile)){ 
@@ -505,7 +507,7 @@ public class ProcessArticle {
 				Picture picture = new Picture();
 				ProcessPicture processPicture = new ProcessPicture();
 				picture.setCid(article.getId());
-				//ªí¥Ü°T®§¹Ï¤ù
+				//ï¿½ï¿½Ü°Tï¿½ï¿½ï¿½Ï¤ï¿½
 				picture.setType(1);
 
 				for(int i=0;i<file.length;i++){
@@ -531,13 +533,13 @@ public class ProcessArticle {
 	}
 
 	/**
-	 * §R°£¤å³¹
+	 * ï¿½Rï¿½ï¿½ï¿½å³¹
 	 */
 	public void del(String path, String id) throws ClassNotFoundException, SQLException{
 		try{
 			op = new Operation();
 
-			//§R°£html
+			//ï¿½Rï¿½ï¿½html
 			sql = "SELECT * FROM cms_infodata WHERE cms_infodata_id='"+id+"'";
 			rs = op.query(sql);
 			if(rs.next()){
@@ -561,11 +563,11 @@ public class ProcessArticle {
 			sql = "DELETE FROM cms_rolls WHERE cms_rolls_info='" +id+ "'";
 			op.update(sql);
 
-			//§R°£µû½×°T®§
+			//ï¿½Rï¿½ï¿½ï¿½ï¿½×°Tï¿½ï¿½
 			sql = "DELETE FROM cms_comment WHERE cms_comment_info='" +id+ "'";
 			op.update(sql);
 
-			//§R°£¤½§i¹Ï¤ù
+			//ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½iï¿½Ï¤ï¿½
 			ProcessPicture processPicture = new ProcessPicture();
 			processPicture.del(path, id, 1);
 

@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.web.util.page;
 import com.web.www.*;
+import util.page;
+import www.LeaveWord;
 
 public class LeaveWordList extends HttpServlet {
 
@@ -63,10 +64,10 @@ public class LeaveWordList extends HttpServlet {
 		LeaveWord lw = new LeaveWord();
 		ProcessLeaveWord plw = new ProcessLeaveWord();
 		/**
-		 * ¥H¤U°Ñ¼Æ¥ÑleavewordList.jsp­¶­±¶Ç¹L¨Óªº¬d¸ß±ø¥ó
+		 * ï¿½Hï¿½Uï¿½Ñ¼Æ¥ï¿½leavewordList.jspï¿½ï¿½ï¿½ï¿½ï¿½Ç¹Lï¿½Óªï¿½ï¿½dï¿½ß±ï¿½ï¿½
 		 */
-		String l_class=request.getParameter("class");//«ö¯d¨¥Ãþ§O¨Ó·j¯Á
-		String isreply=request.getParameter("isreply"); //«ö¬O§_¦^½Æ¨Ó·j¯Á ­Y¬°"0"«h¬O«ö¥¼¦^½Æ·j¯Á¡A¬O"1"«h«ö¤w¦^½Æ¨Ó·j¯Á
+		String l_class=request.getParameter("class");//ï¿½ï¿½ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Ó·jï¿½ï¿½
+		String isreply=request.getParameter("isreply"); //ï¿½ï¿½ï¿½Oï¿½_ï¿½^ï¿½Æ¨Ó·jï¿½ï¿½ ï¿½Yï¿½ï¿½"0"ï¿½hï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½^ï¿½Æ·jï¿½ï¿½ï¿½Aï¿½O"1"ï¿½hï¿½ï¿½ï¿½wï¿½^ï¿½Æ¨Ó·jï¿½ï¿½
 		String reply=request.getParameter("reply");
 		String id=request.getParameter("id");
 		String act=request.getParameter("act");
@@ -91,7 +92,7 @@ public class LeaveWordList extends HttpServlet {
 		
 		
 		
-		//ºc³ySQL»y¥y
+		//ï¿½cï¿½ySQLï¿½yï¿½y
 		String sql="select l_id,l_title,l_user,l_email,l_time,l_isreply from leaveword where 1 ";
 		if(l_class!=null&&!"".equals(l_class)&&!"0".equals(l_class))
 			sql=sql+" and l_class_id='"+l_class+"' ";

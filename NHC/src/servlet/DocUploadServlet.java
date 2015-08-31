@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jspsmart.upload.File;
 import com.jspsmart.upload.SmartUpload;
-import com.web.www.DocDown;
-import com.web.www.ProcessDocDown;
+import www.DocDown;
+import www.ProcessDocDown;
 
 public class DocUploadServlet extends HttpServlet {
 
@@ -107,7 +107,7 @@ public class DocUploadServlet extends HttpServlet {
 				else
 				  {
 					  out.write("<script language=\"javascript\">\r\n");
-					  out.write("alert(\"¤åÀÉ®æ¦¡¤£¥¿½T¡A½Ð­«·s¿é¤J¡T\");\r\n");
+					  out.write("alert(\"ï¿½ï¿½ï¿½É®æ¦¡ï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½Aï¿½Ð­ï¿½ï¿½sï¿½ï¿½Jï¿½T\");\r\n");
 				      out.write("history.go(-1);\r\n");
 				      out.write("</script>\r\n");
 				      return;
@@ -121,7 +121,7 @@ public class DocUploadServlet extends HttpServlet {
 					{
 						
 						  out.write("<script language=\"javascript\">\r\n");
-					      out.write("alert(\"½Ð¤W¶Ç¤åÀÉ¡T\");\r\n");
+					      out.write("alert(\"ï¿½Ð¤Wï¿½Ç¤ï¿½ï¿½É¡T\");\r\n");
 					      out.write("history.go(-1);\r\n");
 					      out.write("</script>\r\n");
 					      return;
@@ -131,12 +131,12 @@ public class DocUploadServlet extends HttpServlet {
 				}
 			else if("mod".equals(act))
 				{
-					 if(file.isMissing())//¥Î¤á§ï®É¨S¦³­×§ï¤åÀÉ
+					 if(file.isMissing())//ï¿½Î¤ï¿½ï¿½É¨Sï¿½ï¿½ï¿½×§ï¿½ï¿½ï¿½ï¿½
 					    {      // System.out.println("111111111111111111111");
 							pdd.updateDocDownNoDoc();
 							//System.out.println("222222222222222222222");
 					    }	
-					else 						//¥Î¤á­×§ï®É­×§ï¤F¤åÀÉ
+					else 						//ï¿½Î¤ï¿½×§ï¿½É­×§ï¿½Fï¿½ï¿½ï¿½ï¿½
 						{
 												
 							String oldaddress=dd.getDown_document();

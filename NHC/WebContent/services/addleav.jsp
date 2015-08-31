@@ -1,16 +1,16 @@
-﻿<%@ page pageEncoding="utf-8" contentType="text/html; charset=utf-8" language="java" import="java.sql.*,java.util.*" %>
-<%@ page import="com.web.www.LeaveWord"%>
+<%@ page pageEncoding="utf-8" contentType="text/html; charset=utf-8" language="java" import="java.sql.*,java.util.*" %>
+<%@page import="www.LeaveWord"%>
 <%@ page import="com.web.www.ProcessLeaveWord"%>
-<%@ page import="com.web.util.DealString"%>
+<%@ page import="util.DealString"%>
 <%@ page import="org.apache.commons.mail.DefaultAuthenticator" %>
 <%@ page import="org.apache.commons.mail.Email" %>
 <%@ page import="org.apache.commons.mail.EmailException" %>
 <%@ page import="org.apache.commons.mail.HtmlEmail" %>
 <%@ page import="com.web.database.*" %>
-<%@ page import="com.web.www.ProcessDocDown" %>
+<%@ page import="www.ProcessDocDown" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.web.www.DocDown" %>
-<%@ page import="com.web.www.ProcessClassify" %>
+<%@ page import="www.DocDown" %>
+<%@ page import="www.ProcessClassify" %>
 <%@ page import="java.text.*" %>
 <%
    String l_user=request.getParameter("l_user");
@@ -26,16 +26,23 @@
    if("".equals(l_user)||l_user==null)
    {
      out.println("<script language=javascript> alert('請輸入您的姓名!'); history.go(-1);</script>");
+     return;
    }
     if("".equals(user_company)||user_company==null)
    {
      out.println("<script language=javascript> alert('請輸入您國籍!'); history.go(-1);</script>");
+     return;
    }
     if("".equals(user_sex)||user_sex==null)
    {
      out.println("<script language=javascript> alert('請選擇您的性別!'); history.go(-1);</script>");
+     return;
    }
-   
+   if(l_content.length()>120)
+   {
+     out.println("<script language=javascript> alert('留言請勿超過120個字(含換行及標點符號)!'); history.go(-1);</script>");
+     return;
+   }
  
    DealString ds = new DealString();
    ProcessLeaveWord plw = new ProcessLeaveWord();
@@ -92,7 +99,7 @@
 	    email.setFrom("nhcadmin@vghks.gov.tw", "醫療客服中心");
 	    email.setMsg(message); 
 	    email.addTo(type0, "親愛的預約管理者");
-	    email.send();
+	    //email.send();
 	out.println("留言成功"); 
 	} catch (EmailException e) {
 	    e.printStackTrace();

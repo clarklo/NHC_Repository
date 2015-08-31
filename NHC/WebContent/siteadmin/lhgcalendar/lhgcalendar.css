@@ -59,14 +59,14 @@
 .cal_panel #ny
 {
     right: 10px;
-	+left: 144px;
+	left: 144px;
 	background-position: 0 0;
 }
 
 .cal_panel #nm
 {
     right: 24px;
-	+left: 130px;
+	left: 130px;
 	background-position: 0 -20px;
 }
 
