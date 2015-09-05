@@ -2,6 +2,9 @@
 <%@include file="permission.jsp"%>
 <%@include file="permission/permission3.jsp"%>
 <%
+if (admin == null ){
+  out.close();
+}
 int pid = 0;
 int no = 0;
 String currPathId = "0::";

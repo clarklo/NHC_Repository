@@ -1,7 +1,7 @@
 ﻿<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*" %>
 <%@include file="permission.jsp"%>
 <%
-com.web.www.Admin admin = (com.web.www.Admin)session.getAttribute("admin");
+//com.web.www.Admin admin = (com.web.www.Admin)session.getAttribute("admin");
 String permission = admin.getPermission();
 %>
 <html>
@@ -46,6 +46,10 @@ function showsubmenu(sid)
   </tr>
 </table>
 <br>
+
+<%
+if(permission.charAt(0) == 'Y'){
+%>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="156">
   <tr onClick="showsubmenu(1)" style="cursor: hand">
     <td class="menu" background="images/bg.GIF">&nbsp;<b>訊息管理</b></td>
@@ -78,6 +82,11 @@ function showsubmenu(sid)
   </tr>
 </table>
 <br>
+<%
+}
+if(permission.charAt(1) == 'Y'){
+%>
+
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="156">
   <tr onClick="showsubmenu(2)" style="cursor: hand">
     <td class="menu" background="images/bg.GIF">&nbsp;<strong>會員管理</strong></td>
@@ -104,6 +113,10 @@ function showsubmenu(sid)
   </tr>
 </table>
 <br>
+<%
+}
+if(permission.charAt(2) == 'Y'){
+%>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="156">
   <tr onClick="showsubmenu(3)" style="cursor: hand">
     <td class="menu" background="images/bg.GIF">&nbsp;<strong>預約管理</strong></td>
@@ -131,6 +144,10 @@ function showsubmenu(sid)
   </tr>
 </table>
 <br>
+<%
+}
+if(permission.charAt(3) == 'Y'){
+%>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="156">
   <tr onClick="showsubmenu(4)" style="cursor: hand">
     <td class="menu" background="images/bg.GIF">&nbsp;<strong>收費標準管理</strong></td>
@@ -168,6 +185,10 @@ function showsubmenu(sid)
   </tr>
 </table>
 <br>
+<%
+}
+
+%>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="156">
   <tr onClick="showsubmenu(5)" style="cursor: hand">
     <td class="menu" background="images/bg.GIF">&nbsp;<b>系統管理</b></td>
@@ -177,10 +198,15 @@ function showsubmenu(sid)
     <td colspan="2" width="154" style="display:" id='submenu5'>
     <div class=sub_menu style="width:158">
 	<table cellpadding=0 cellspacing=0 align=center width=135 height="43">
-	
+<%
+if( admin.getIsAdmin()== 1){
+%>
 	<tr>
             <td height=20 align="center"><a href="manager.jsp" target="main">管 理 員</a></td>
 	</tr>
+    <%
+}
+%>    
 	<tr>
 	  <td height=20 align="center" valign="middle"><a href="modpass.jsp">修改密碼</a></td>
 	</tr>
