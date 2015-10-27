@@ -1,3 +1,4 @@
+<%@page import="www.ProcessDownload"%>
 <%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*,com.web.www.*,java.io.*" errorPage="error/error.jsp" %>
 <%@include file="permission.jsp"%>
 <%@include file="permission/permission3.jsp"%>
@@ -6,21 +7,21 @@ int cid = Integer.parseInt(request.getParameter("cid"));
 int no = Integer.parseInt(request.getParameter("no"));
 String path = request.getRealPath("/");	
 
-//欄目權限判斷
-boolean hasPermission = false;
-if(admin.getIsAdmin()==0){
-	int permissionId[] = (int[])session.getAttribute("permissionId");						
-	for(int i= 0;i<permissionId.length;i++){
-		if(cid == permissionId[i]){
-			hasPermission = true;
-			break;
-		}
-	}
-}
-else if(admin.getIsAdmin()==1){
-	//cms_admin_system
-	hasPermission = true;
-}
+//欄目權限判斷 //20150930 改為有作業權限就有權限。
+boolean hasPermission = true;
+//if(admin.getIsAdmin()==0){
+//	int permissionId[] = (int[])session.getAttribute("permissionId");						
+//	for(int i= 0;i<permissionId.length;i++){
+//		if(cid == permissionId[i]){
+//			hasPermission = true;
+//			break;
+//		}
+//	}
+//}
+//else if(admin.getIsAdmin()==1){
+//	//cms_admin_system
+//	hasPermission = true;
+//}
 
 if(hasPermission){
 	ProcessDownload processData = new ProcessDownload();

@@ -1,4 +1,4 @@
-﻿<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*,com.web.database.*,com.web.util.*" errorPage="error/error.jsp" %>
+﻿<%@ page contentType="text/html; charset=utf-8" language="java" import="java.sql.*,com.web.database.*,util.*" errorPage="error/error.jsp" %>
 <%@include file="permission.jsp"%>
 <%@include file="permission/permission3.jsp"%>
 <%

@@ -41,7 +41,7 @@ else{
 			Operation op = new Operation();
 			
 			int totalRecord = 0;
-			ResultSet rs = op.query("SELECT COUNT(*) AS total FROM cms_class");
+			ResultSet rs = op.query("SELECT COUNT(*) AS total FROM cms_class ");
 			ResultSet rs1 = null;
 			while(rs.next()){
 				totalRecord = rs.getInt("total");
@@ -51,7 +51,7 @@ else{
 			int permissionId[] = new int[totalRecord];
 			int i = 0;
 			for(i=0;i<totalRecord;i++)permissionId[i] = 0;
-			rs = op.query("SELECT * FROM cms_permision WHERE cms_permision_aid="+(processAdmin.getAdmin()).getId());
+			rs = op.query("SELECT * FROM cms_permision WHERE   cms_permision_aid="+(processAdmin.getAdmin()).getId());
 			i = 0;
 			while(rs.next()){
 				int cid = rs.getInt("cms_class_id");

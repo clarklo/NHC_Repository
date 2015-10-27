@@ -4,19 +4,19 @@
 String oldPassword = request.getParameter("oldPassword");
 String newPassword = request.getParameter("newPassword");
 String confirmPassword = request.getParameter("confirmPassword");
-com.web.www.Admin admin = (com.web.www.Admin)session.getAttribute("admin");
+
 int id = admin.getId();
 
 if(oldPassword == null || oldPassword.equals("")){
 	out.println("<script language=javascript> alert('舊密碼不能為空,請輸入您的舊密碼!'); location.href='modpass.jsp';</script>");
 }
-else if(com.web.util.SpecialStringFilter.check(oldPassword)){
+else if(util.SpecialStringFilter.check(oldPassword)){
 	out.println("<script language=javascript> alert('舊密碼中含有非法字元串!'); location.href='modpass.jsp';</script>");
 }
 else if(newPassword == null || newPassword.equals("")){
 	out.println("<script language=javascript> alert('新密碼不能為空,請輸入您的新密碼!'); location.href='modpass.jsp';</script>");
 }
-else if(com.web.util.SpecialStringFilter.check(newPassword)){
+else if(util.SpecialStringFilter.check(newPassword)){
 	out.println("<script language=javascript> alert('新密碼中含有非法字元串!'); location.href='modpass.jsp';</script>");
 }
 else if(!newPassword.equals(confirmPassword)){
@@ -28,7 +28,9 @@ else{
 	processAdmin.modPassword(id, oldPassword, newPassword);
 	
 	if(processAdmin.isStatus()){		
-		response.sendRedirect("modpass.jsp");
+            
+ 
+		out.println("<script language=javascript> alert('修改成功'); location.href='modpass.jsp';</script>");
 	}
 	else{
 		out.println("<script language=javascript> alert('"+ processAdmin.getMsg() + "'); location.href='modpass.jsp';</script>");	

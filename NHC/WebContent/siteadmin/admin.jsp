@@ -104,7 +104,7 @@ function CheckAll(form)
     <td height="25" align="center"><div align="right"><strong>文 件 夾: </strong></div></td>
     <td height="25" align="center"><div align="left"><strong>【</strong>
 	<%
-	if(admin.getIsAdmin()==1){
+	if(admin.getIsAdmin()==1||admin.getIsAdmin()==0){
 	System.out.println(true);
 		rs = op.query("SELECT * FROM cms_class WHERE cms_class_fatid="+pid + " AND cms_class_href='' ORDER BY cms_class_orderid ASC");
 	}
@@ -154,7 +154,7 @@ function CheckAll(form)
 	//總頁數 
 	int pageCount = 0; 
 	//獲得記錄總數
-	if(admin.getIsAdmin()==1){
+	if(admin.getIsAdmin()==1||admin.getIsAdmin()==0){
 		rs = op.query("SELECT COUNT(*) AS total FROM cms_infodata WHERE cms_infodata_class="+pid);
 	}
 	else{
@@ -175,7 +175,7 @@ function CheckAll(form)
 	String navigator = Pagable.navigator(currPage, pageSize, pageCount, totalRecord);
 
 	//獲得當前頁的記錄集
-	if(admin.getIsAdmin()==1){
+	if(admin.getIsAdmin()==1||admin.getIsAdmin()==0){
 		//rs = op.query("SELECT top " + pageSize + " * FROM cms_infodata where cms_infodata_class=" + pid + " AND cms_infodata_id NOT IN (SELECT TOP " + ((currPage - 1) * pageSize)+ " cms_infodata_id from cms_infodata where cms_infodata_class=" + pid + " ORDER BY cms_infodata_id DESC) ORDER BY cms_infodata_id DESC");
 		//##rs = op.query("SELECT * FROM cms_infodata where cms_infodata_class=" + pid + " ORDER BY cms_infodata_id DESC limit "+((currPage - 1) * pageSize)+"," + (pageSize));
 		rs = op.query("SELECT * FROM cms_infodata where cms_infodata_class=" + pid + " ORDER BY cms_infodata_id DESC  ," + (pageSize));
